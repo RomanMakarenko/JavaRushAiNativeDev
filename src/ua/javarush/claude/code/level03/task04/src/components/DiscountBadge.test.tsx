@@ -12,4 +12,9 @@ describe("DiscountBadge", () => {
     render(<DiscountBadge discountPercent={10} />);
     expect(screen.getByText("10%")).toBeInTheDocument();
   });
+
+  it("показує 0% для нульової знижки", () => {
+    render(<DiscountBadge discountPercent={0} />);
+    expect(screen.getByText("0%")).toBeInTheDocument();
+  });
 });

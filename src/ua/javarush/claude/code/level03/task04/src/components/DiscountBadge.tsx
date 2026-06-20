@@ -9,7 +9,8 @@ type DiscountBadgeProps = {
 export function DiscountBadge({ discountPercent }: DiscountBadgeProps) {
   // БАГ: truthiness-перевірка вважає значення 0 «порожнім»,
   // тому для нульової знижки бейдж не відображається.
-  if (!discountPercent) {
+  // Виправлення: перевіряємо лише від'ємні значення.
+  if (discountPercent < 0) {
     return null;
   }
 
