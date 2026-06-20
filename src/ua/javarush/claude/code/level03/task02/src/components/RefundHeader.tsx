@@ -3,5 +3,5 @@ import React from "react";
 
 export function RefundHeader() {
   // Друкарська помилка в тексті заголовка: має бути "Refund request".
-  return <h1 className="refund-form__title">Refund requset</h1>;
+  return <h1 className="refund-form__title">Refund request</h1>;
 }
