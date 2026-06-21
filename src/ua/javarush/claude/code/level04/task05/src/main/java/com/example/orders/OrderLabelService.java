@@ -10,6 +10,6 @@ public class OrderLabelService {
         if (label == null) {
             return null;
         }
-        return label;
+        return label.trim();
     }
 }
