@@ -1,0 +1,17 @@
+diff --git a/src/main/java/com/example/orders/OrderLabelService.java b/src/main/java/com/example/orders/OrderLabelService.java
+index b79da48..c1f4b00 100644
+--- a/src/main/java/com/example/orders/OrderLabelService.java
++++ b/src/main/java/com/example/orders/OrderLabelService.java
+@@ -6,10 +6,11 @@ import org.springframework.stereotype.Service;
+ public class OrderLabelService {
+ 
+     // Нормалізує label замовлення перед збереженням.
++    // Поточний diff: додано trim початкових/кінцевих пробілів.
+     public String normalizeLabel(String label) {
+         if (label == null) {
+             return null;
+         }
+-        return label;
++        return label.trim();
+     }
+ }

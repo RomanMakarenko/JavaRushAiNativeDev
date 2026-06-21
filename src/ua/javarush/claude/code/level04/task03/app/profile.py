@@ -7,5 +7,5 @@ def update_display_name(name: str) -> str:
     Баг: ім'я зберігається як є, без видалення провідних і замикальних пробілів.
     """
     # TODO: привести поведінку до acceptance criteria (trimming)
-    saved = name
+    saved = name.strip()
     return saved
