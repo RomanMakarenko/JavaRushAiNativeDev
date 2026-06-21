@@ -6,8 +6,10 @@ type RefundReviewBadgeProps = {
   requiresManualReview: boolean;
 };
 
-// TODO: показати badge "Manual review required", коли requiresManualReview === true,
-// і нічого не показувати, коли значення false.
-export function RefundReviewBadge(_props: RefundReviewBadgeProps) {
-  return null;
+export function RefundReviewBadge({ requiresManualReview }: RefundReviewBadgeProps) {
+  if (!requiresManualReview) {
+    return null;
+  }
+
+  return <span>Manual review required</span>;
 }

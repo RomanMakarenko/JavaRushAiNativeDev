@@ -3,10 +3,14 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { RefundReviewBadge } from "./RefundReviewBadge";
 
-// TODO: додати перевірки на відображення і приховування badge
-// залежно від значення requiresManualReview.
 describe("RefundReviewBadge", () => {
-  it("чернетка тесту", () => {
+  it("показує badge, коли requiresManualReview === true", () => {
+    render(<RefundReviewBadge requiresManualReview={true} />);
+    expect(screen.getByText("Manual review required")).toBeInTheDocument();
+  });
+
+  it("ховає badge, коли requiresManualReview === false", () => {
     render(<RefundReviewBadge requiresManualReview={false} />);
+    expect(screen.queryByText("Manual review required")).not.toBeInTheDocument();
   });
 });
