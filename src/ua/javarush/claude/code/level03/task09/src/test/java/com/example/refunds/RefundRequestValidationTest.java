@@ -25,14 +25,14 @@ class RefundRequestValidationTest {
     @Test
     void notesAtLimitIsValid() {
         // notes рівно на верхній межі мають проходити валідацію.
-        RefundRequest request = new RefundRequest("ORD-1", "a".repeat(500));
+        RefundRequest request = new RefundRequest("ORD-1", "a".repeat(1000));
         assertTrue(validator.validate(request).isEmpty());
     }
 
     @Test
     void notesOverLimitIsInvalid() {
         // notes довші за ліміт мають давати порушення.
-        RefundRequest request = new RefundRequest("ORD-1", "a".repeat(501));
+        RefundRequest request = new RefundRequest("ORD-1", "a".repeat(1001));
         assertFalse(validator.validate(request).isEmpty());
     }
 }

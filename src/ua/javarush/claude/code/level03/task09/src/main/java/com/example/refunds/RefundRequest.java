@@ -13,7 +13,7 @@ public class RefundRequest {
     private String orderId;
 
     // Поточний ліміт довжини нотатки — 500 символів.
-    @Size(max = 500, message = "notes must be at most 500 characters")
+    @Size(max = 1000, message = "notes must be at most 1000 characters")
     private String notes;
 
     public RefundRequest() {
