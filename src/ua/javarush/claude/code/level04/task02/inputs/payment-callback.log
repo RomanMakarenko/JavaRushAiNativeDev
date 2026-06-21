@@ -1,0 +1,5 @@
+2026-05-21T09:11:02Z INFO  callback received provider=acme-pay event=payment.succeeded txId=tx_8841 orderId=A-20517
+2026-05-21T09:11:02Z DEBUG callback payload status=succeeded amount=12990 currency=EUR
+2026-05-21T09:11:02Z WARN  status mapping returned UNKNOWN for provider status=succeeded
+2026-05-21T09:11:02Z INFO  order status set to PAYMENT_FAILED orderId=A-20517
+2026-05-21T09:11:03Z ERROR mismatch: gateway=succeeded local=PAYMENT_FAILED orderId=A-20517
