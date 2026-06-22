@@ -17,7 +17,7 @@ describe("NewsletterForm", () => {
 
     expect(onSubmit).toHaveBeenCalledWith({
       email: "user@example.com",
-      frequency: "daily",
+      frequency: "weekly",
     });
   });
 });

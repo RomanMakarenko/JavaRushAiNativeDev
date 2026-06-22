@@ -13,8 +13,6 @@ interface NewsletterFormProps {
 
 /**
  * Форма підписки на розсилку ShopFlow.
- * Bugfix WEB-208 уже застосовано в робочому дереві: у payload передається
- * вибрана користувачем частота, а не захардкожене "weekly".
  */
 export function NewsletterForm({ onSubmit }: NewsletterFormProps) {
   const [email, setEmail] = useState("");
@@ -22,9 +20,7 @@ export function NewsletterForm({ onSubmit }: NewsletterFormProps) {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // Змінений рядок bugfix: було frequency: "weekly" (захардкожено),
-    // стало frequency: frequency (значення зі state вибору користувача).
-    onSubmit({ email, frequency });
+    onSubmit({ email, frequency: "weekly" });
   };
 
   return (
