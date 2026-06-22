@@ -1,0 +1,36 @@
+diff --git a/src/main/java/com/example/search/SearchSuggestionService.java b/src/main/java/com/example/search/SearchSuggestionService.java
+index 1a2b3c4..5d6e7f8 100644
+--- a/src/main/java/com/example/search/SearchSuggestionService.java
++++ b/src/main/java/com/example/search/SearchSuggestionService.java
+@@ -10,7 +10,11 @@ public class SearchSuggestionService {
+     public List<String> suggest(String query) {
+-        return catalog.allItems();
++        if (query == null || query.isBlank()) {
++            return List.of();
++        }
++        // перейменовано q -> normalizedQuery в межах "cleanup"
++        String normalizedQuery = query.trim().toLowerCase();
++        return catalog.match(normalizedQuery);
+     }
+ }
+diff --git a/src/main/java/com/example/search/SearchLogger.java b/src/main/java/com/example/search/SearchLogger.java
+index aaa1111..bbb2222 100644
+--- a/src/main/java/com/example/search/SearchLogger.java
++++ b/src/main/java/com/example/search/SearchLogger.java
+@@ -3,5 +3,7 @@ public class SearchLogger {
+-    public void log(String msg) { System.out.println(msg); }
++    // unrelated cleanup: зміна формату логів
++    public void log(String msg) { System.out.println("[search] " + msg); }
++    public void debug(String msg) { System.out.println("[debug] " + msg); }
+ }
+diff --git a/src/main/java/com/example/checkout/CheckoutService.java b/src/main/java/com/example/checkout/CheckoutService.java
+index ccc3333..ddd4444 100644
+--- a/src/main/java/com/example/checkout/CheckoutService.java
++++ b/src/main/java/com/example/checkout/CheckoutService.java
+@@ -20,6 +20,8 @@ public class CheckoutService {
+-        return total;
++        // unrelated change поза scope SEARCH-71
++        return applyExperimentalDiscount(total);
+     }
++    private double applyExperimentalDiscount(double total) { return total * 0.97; }
+ }

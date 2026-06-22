@@ -1,0 +1,50 @@
+diff --git a/src/components/NewsletterForm.test.tsx b/src/components/NewsletterForm.test.tsx
+index cf74a8b..719aec9 100644
+--- a/src/components/NewsletterForm.test.tsx
++++ b/src/components/NewsletterForm.test.tsx
+@@ -3,15 +3,21 @@ import { describe, it, expect, vi } from "vitest";
+ import { NewsletterForm } from "./NewsletterForm";
+ 
+ describe("NewsletterForm", () => {
+   it("submits the frequency selected by the user", () => {
+     const onSubmit = vi.fn();
+     render(<NewsletterForm onSubmit={onSubmit} />);
+ 
+     fireEvent.change(screen.getByLabelText("email"), {
+       target: { value: "user@example.com" },
+     });
+     fireEvent.change(screen.getByLabelText("frequency"), {
+       target: { value: "daily" },
+     });
+     fireEvent.click(screen.getByText("Subscribe"));
+ 
+     expect(onSubmit).toHaveBeenCalledWith({
+       email: "user@example.com",
+       frequency: "daily",
+     });
+   });
+ });
+diff --git a/src/components/NewsletterForm.tsx b/src/components/NewsletterForm.tsx
+index 2ac1429..c51c212 100644
+--- a/src/components/NewsletterForm.tsx
++++ b/src/components/NewsletterForm.tsx
+@@ -13,6 +13,8 @@ interface NewsletterFormProps {
+ 
+ /**
+  * Форма підписки на розсилку ShopFlow.
++ * Bugfix WEB-208 уже застосовано в робочому дереві: у payload передається
++ * вибрана користувачем частота, а не захардкожене "weekly".
+  */
+ export function NewsletterForm({ onSubmit }: NewsletterFormProps) {
+   const [email, setEmail] = useState("");
+@@ -20,7 +22,9 @@ export function NewsletterForm({ onSubmit }: NewsletterFormProps) {
+ 
+   const handleSubmit = (event: React.FormEvent) => {
+     event.preventDefault();
+-    onSubmit({ email, frequency: "weekly" });
++    // Змінений рядок bugfix: було frequency: "weekly" (захардкожено),
++    // стало frequency: frequency (значення зі state вибору користувача).
++    onSubmit({ email, frequency });
+   };
+ 
+   return (

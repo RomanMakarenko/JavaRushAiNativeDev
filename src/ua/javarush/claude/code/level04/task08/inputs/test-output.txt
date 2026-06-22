@@ -1,0 +1,13 @@
+> Task :test
+
+SearchSuggestionServiceTest > emptyQueryReturnsNoSuggestions() PASSED
+
+CheckoutServiceTest > calculatesTotalWithoutDiscount() FAILED
+    org.opentest4j.AssertionFailedError: expected: <100.0> but was: <97.0>
+        at CheckoutServiceTest.calculatesTotalWithoutDiscount(CheckoutServiceTest.java:24)
+
+3 tests completed, 1 failed
+
+> Task :test FAILED
+
+BUILD FAILED in 4s
