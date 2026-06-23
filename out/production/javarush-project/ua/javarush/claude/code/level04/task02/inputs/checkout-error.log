@@ -1,0 +1,5 @@
+2026-05-21T09:11:02Z INFO  checkout step=payment orderId=A-20517 user=u-4410
+2026-05-21T09:11:03Z ERROR checkout shown error to user code=PAYMENT_FAILED orderId=A-20517
+2026-05-21T09:11:03Z DEBUG checkout retry button enabled
+2026-05-21T09:12:40Z INFO  checkout step=payment orderId=A-20530 user=u-4502
+2026-05-21T09:12:41Z INFO  checkout success orderId=A-20530
