@@ -1,0 +1,12 @@
+2026-05-30T10:58:01Z INFO  Bootstrap - Commerce OS started, profile=staging
+2026-05-30T10:58:02Z INFO  Scheduler - nightly report job registered
+2026-05-30T10:58:10Z INFO  OrderService - order placed id=10293 user=u-551
+2026-05-30T10:59:44Z INFO  Catalog - reindex completed in 1240ms
+2026-05-30T11:00:00Z INFO  Scheduler - metrics flush ok
+2026-05-30T11:01:12Z INFO  OrderService - order placed id=10294 user=u-118
+2026-05-30T11:02:14Z INFO  LoginController - refresh requested user=u-118
+2026-05-30T11:03:30Z INFO  Catalog - price cache warm complete
+2026-05-30T11:04:55Z INFO  OrderService - order placed id=10295 user=u-771
+2026-05-30T11:06:21Z INFO  Mailer - 42 notifications sent
+2026-05-30T11:07:40Z INFO  Scheduler - metrics flush ok
+2026-05-30T11:09:03Z INFO  LoginController - refresh requested user=u-118

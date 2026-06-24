@@ -1,0 +1,11 @@
+INCLUDE:
+TASK_SPEC.md
+src/auth/LoginController.java
+src/auth/SessionService.java
+tests/AuthFlowTest.java
+logs/auth-error.log
+
+EXCLUDE:
+src/orders/OrderService.java
+logs/application.log
+.env - excluded. reason: contains sensitive environment variables and secrets
