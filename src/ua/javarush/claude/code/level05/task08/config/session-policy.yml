@@ -3,12 +3,13 @@ project: payments-auth
 owner: platform-team
 
 # --- session hygiene ---
-# Дозволяти змішувати кілька задач в одній session.
-allowMixedTasks: true
-# Тримати відхилені гіпотези активними в контексті.
-keepRejectedHypothesesActive: true
-# У разі розгубленості краще набирати ще більше контексту.
-preferMoreContextWhenConfused: true
+# Одна задача за раз (чиста сесія).
+allowMixedTasks: false
+# Відхилені гіпотези очищуються з контексту.
+keepRejectedHypothesesActive: false
+# У разі плутанини — вузький recovery-first підхід, не додавати контексту.
+preferMoreContextWhenConfused: false
+preferredRecoveryAction: restart-session
 
 # --- інші налаштування (не належать до session hygiene) ---
 defaultBranch: main
