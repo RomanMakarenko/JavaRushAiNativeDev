@@ -1,0 +1,16 @@
+# Політика робочих session для auth-багфікса
+project: payments-auth
+owner: platform-team
+
+# --- session hygiene ---
+# Дозволяти змішувати кілька задач в одній session.
+allowMixedTasks: true
+# Тримати відхилені гіпотези активними в контексті.
+keepRejectedHypothesesActive: true
+# У разі розгубленості краще набирати ще більше контексту.
+preferMoreContextWhenConfused: true
+
+# --- інші налаштування (не належать до session hygiene) ---
+defaultBranch: main
+maxLogTailLines: 200
+notifyChannel: "#payments-auth"
