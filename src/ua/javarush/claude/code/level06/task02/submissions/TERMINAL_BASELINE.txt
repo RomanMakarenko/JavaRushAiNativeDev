@@ -1,0 +1,4 @@
+## feature/refund-threshold-m1
+A  src/ua/javarush/claude/code/level06/task02/notes/DECISION_LOG.md
+A  src/ua/javarush/claude/code/level06/task02/notes/STOP_POINT.md
+?? src/ua/javarush/claude/code/level06/task02/submissions/TERMINAL_BASELINE.txt
