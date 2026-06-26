@@ -1,0 +1,36 @@
+=== ПОСЛІДОВНІСТЬ ДІЙ ===
+
+1. Створено гілку refund-banner-fix
+   git checkout -b refund-banner-fix
+
+2. Внесено випадкову правку в README.md (рядок "this-was-added-by-mistake-please-remove"
+   додано після HTML-коментаря)
+
+3. Виконано git restore README.md — випадковий рядок прибрано
+
+4. Внесено правку в RefundBannerService.java:
+   - TODO-коментар "// потрібна правка: при нульовому поверненні банер не показуємо"
+   - return "" — замінено на "Повернення неможливе: сума має бути більше 0"
+
+=== git status -sb (ДО recovery, крок 3) ===
+## refund-banner-fix
+ M src/ua/javarush/claude/code/level06/task05/README.md
+ M src/ua/javarush/claude/code/level06/task05/RefundBannerService.java
+
+=== git diff --name-only (ДО recovery, крок 3) ===
+src/ua/javarush/claude/code/level06/task05/README.md
+src/ua/javarush/claude/code/level06/task05/RefundBannerService.java
+
+=== ПЕРЕВІРКА README.md ПІСЛЯ git restore ===
+Команда: git restore README.md (з директорії task05/)
+Результат: git diff src/ua/javarush/claude/code/level06/task05/README.md — порожньо
+Статус: README.md повністю ідентичний версії з main. Випадковий рядок видалено.
+
+=== git status -sb (ПІСЛЯ recovery) ===
+## refund-banner-fix
+ M RefundBannerService.java
+ M submissions/TERMINAL_RECOVERY.txt
+
+=== git diff --name-only (ПІСЛЯ recovery) ===
+src/ua/javarush/claude/code/level06/task05/RefundBannerService.java
+src/ua/javarush/claude/code/level06/task05/submissions/TERMINAL_RECOVERY.txt
