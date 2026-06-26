@@ -19,6 +19,6 @@ class RefundMessagesTest {
     @Test
     void refundAmountLabelMatchesExpectedText() throws Exception {
         Properties props = loadMessages();
-        assertEquals("Refund amount", props.getProperty("refund.amount.label"));
+        assertEquals("Returned amount", props.getProperty("refund.amount.label"));
     }
 }
