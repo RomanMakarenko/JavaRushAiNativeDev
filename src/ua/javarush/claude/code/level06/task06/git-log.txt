@@ -1,6 +1,6 @@
 # Приклад того, як виглядає історія ПІСЛЯ відтворення ситуації
 # (`git log --oneline -3` на вашій гілці; хеші у вас будуть свої).
 # Найверхній коміт — поганий: він змінив server.port на 9090.
-f3a9c21 chore: bump server.port to 9090
-9b4e1d7 feat: add refund banner config flag
-2c0f5ee test: add PortConfigTest for default port
+c65eb4b chore: bump server.port to 9090
+04c204b feat: add refund banner config flag
+ab3a767 test: add PortConfigTest for default port
