@@ -1,0 +1,9 @@
+=== git worktree list ===
+/Users/romanmakarenko/javarush/6512114/javarush-project  74bb8ef [main]
+/Users/romanmakarenko/javarush/6512114/commerce-hotfix   74bb8ef [hotfix/refund-label]
+
+=== pwd ===
+/Users/romanmakarenko/javarush/6512114/commerce-hotfix
+
+=== current branch ===
+hotfix/refund-label
