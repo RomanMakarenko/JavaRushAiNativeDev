@@ -1,0 +1,12 @@
+> Task :compileJava
+> Task :compileTestJava
+> Task :test
+
+RefundServiceTest > allowsRefundWithoutManualReview() PASSED
+RefundServiceTest > rejectsManualReviewWithEmptyComment() PASSED
+RefundServiceTest > allowsManualReviewWithComment() PASSED
+
+BUILD SUCCESSFUL in 4s
+3 actionable tasks: 3 executed
+
+Примітка: сценарій amount > 1000 окремим тестом поки що не покрито.
