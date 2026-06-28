@@ -1,0 +1,19 @@
+# Локальна інфраструктура вітрини Commerce OS для discovery та запуску.
+services:
+  db:
+    image: postgres:18.3
+    environment:
+      POSTGRES_DB: store
+      POSTGRES_USER: store
+      POSTGRES_PASSWORD: store_local_dev
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: .
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/store
+    ports:
+      - "8080:8080"

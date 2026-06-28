@@ -1,0 +1,172 @@
+FIRST LOOK — Commerce OS Storefront
+=====================================
+2026-06-28
+
+
+Where am I
+----------
+
+Команда:            pwd
+Вивід:
+  /Users/romanmakarenko/javarush/6512114/javarush-project/src/
+  ua/javarush/claude/code/level07/task01/task-workspace
+
+Команда:            git status --short
+Вивід:              (порожньо — чиста робоча директорія)
+
+Команда:            git log --oneline -1
+Вивід:              dac9260 l6 t10 v2
+
+Команда:            git branch --show-current
+Вивід:              main
+
+
+Top-level directories
+---------------------
+
+Команда:            find . -maxdepth 3 -not -path '*/submissions/*' \
+                      -not -path '*/.git/*' -not -path '*/node_modules/*' | sort
+Вивід (власний ls — переписано як дерево):
+  .
+  ├── build.gradle.kts          # Spring Boot 4.0.6, Java 25
+  ├── settings.gradle.kts       # rootProject.name = "store"
+  ├── frontend/
+  │   └── package.json          # Next.js 16.2.0 + React 19.2.0 + Vitest
+  ├── src/
+  │   ├── main/java/com/acme/store/
+  │   │   └── StoreApplication.java
+  │   └── test/java/com/acme/store/
+  │       └── StoreApplicationTest.java
+  └── submissions/
+      └── FIRST_LOOK.txt
+
+Команда:            ls -la
+Вивід:
+  total 16
+  drwxr-xr-x@ 7 ... .
+  drwxr-xr-x@ 7 ... ..
+  -rw-r--r--@ 1 ... build.gradle.kts
+  drwxr-xr-x@ 3 ... frontend
+  -rw-r--r--@ 1 ... settings.gradle.kts
+  drwxr-xr-x@ 4 ... src
+  drwxr-xr-x@ 3 ... submissions
+
+Команда:            ls -la gradlew; ls -la gradle/
+Вивід:              ls: gradlew: No such file or directory
+                    ls: gradle/: No such file or directory
+  Висновок:         Gradle Wrapper відсутній
+
+
+Run / test
+----------
+
+BACKEND (Spring Boot + Gradle)
+
+  Команда:            gradle --version
+  Вивід:              Gradle 9.5.1, JVM: 21.0.11
+
+  Команда:            java -version
+  Вивід (stderr):     openjdk 21.0.11
+
+  Команда:            gradle compileJava
+  Вивід (останні рядки):
+    > Task :compileJava FAILED
+    FAILURE: Build failed with an exception.
+    * What went wrong:
+      Execution failed for task ':compileJava'.
+      > Java compilation initialization error
+          error: invalid source release: 25
+    BUILD FAILED in 29s
+  Діагноз:            build.gradle.kts має sourceCompatibility = Version_25,
+                      але JDK 21 — компіляція блокується.
+
+  Команда:            gradle test
+  Вивід:              та сама помилка (compileJava не виконується)
+  Діагноз:            Тести залежать від compileJava, тому теж падають.
+
+FRONTEND (Next.js)
+
+  Команда:            npm --version && node --version
+  Вивід:              11.4.2 / v22.16.0
+
+  Команда:            cd frontend && npm install
+  Вивід:
+    added 139 packages, audited 140 packages
+    7 vulnerabilities (4 moderate, 2 high, 1 critical)
+
+  Команда:            cd frontend && npm run dev  (запуск, kill через 12 с)
+  Вивід:
+    ▲ Next.js 16.2.0 (Turbopack)
+    - Local:         http://localhost:3000
+    - Network:       http://192.168.3.60:3000
+    ✓ Ready in 491ms
+    Error: > Couldn't find any `pages` or `app` directory.
+             Please create one under the project root
+  Діагноз:            Next.js стартує (Turbopack, 491ms), але падає,
+                      бо в frontend/ відсутні app/ або pages/.
+
+
+Likely entry points
+-------------------
+
+  Backend:
+    Class:            StoreApplication
+    File:             src/main/java/com/acme/store/StoreApplication.java
+    Role:             @SpringBootApplication — головний клас Spring Boot
+    Content:
+      package com.acme.store;
+      import org.springframework.boot.SpringApplication;
+      import org.springframework.boot.autoconfigure.SpringBootApplication;
+      @SpringBootApplication
+      public class StoreApplication {
+          public static void main(String[] args) {
+              SpringApplication.run(StoreApplication.class, args);
+          }
+      }
+
+  Backend (test):
+    Class:            StoreApplicationTest
+    File:             src/test/java/com/acme/store/StoreApplicationTest.java
+    Role:             @SpringBootTest — smoke-тест, що контекст піднімається
+    Content:
+      @SpringBootTest
+      class StoreApplicationTest {
+          @Test void contextLoads() {}
+      }
+
+  Frontend:
+    Source:           frontend/package.json — scripts: dev/build/start/test
+    Role:             Next.js 16 (Turbopack)
+    Current state:    App entry not created — no `app/` or `pages/` directory
+
+
+Open questions
+--------------
+
+  1. Java 25 vs JDK 21:
+     - build.gradle.kts оголошує sourceCompatibility = JavaVersion.VERSION_25,
+       але машина має лише JDK 21.
+     - Чи це вимога до середовища, чи sourceCompatibility можна знизити до 21?
+
+  2. Відсутній Gradle Wrapper:
+     - gradlew та gradle/ не існують, хоча це стандартний спосіб
+       гарантувати версію Gradle.
+     - Чи генерувати wrapper через `gradle wrapper`?
+
+  3. Frontend без скелета:
+     - Next.js стартує, але падає — немає app/ або pages/.
+     - Чи створювати базовий app/layout.js + app/page.js?
+
+  4. Вразливості npm:
+     - npm install показав 7 вразливостей (4 moderate, 2 high, 1 critical).
+     - Чи це прийнятно на старті, чи треба фіксити негайно?
+
+  5. Повнота тестів:
+     - Є лише один smoke-тест на підняття Spring-контексту.
+     - Чи планується додавання unit-тестів для бізнес-логіки?
+
+  6. Архітектура стеку:
+     - Backend (Spring Boot) + Frontend (Next.js) окремі, але немає
+       API-контракту чи спільної збірки.
+     - Чи планується, що backend обслуговує статику, чи це два окремі
+       деплойменти?
