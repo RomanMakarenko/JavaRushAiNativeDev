@@ -1,0 +1,16 @@
+# Локальне середовище для розробки: база даних PostgreSQL для бекенд-сервісу магазину.
+services:
+  db:
+    image: postgres:16
+    environment:
+      # Приклад облікових даних для локального запуску, не для production.
+      POSTGRES_DB: store
+      POSTGRES_USER: store
+      POSTGRES_PASSWORD: store_local_dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - store-db-data:/var/lib/postgresql/data
+
+volumes:
+  store-db-data:
