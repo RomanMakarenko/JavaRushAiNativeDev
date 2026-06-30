@@ -1,0 +1,19 @@
+{
+  "name": "store-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Вітрина магазину на React",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0",
+    "vitest": "^1.5.0"
+  }
+}
