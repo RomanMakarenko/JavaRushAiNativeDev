@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+orders:
+  # Максимально допустима кількість товару в одному замовленні.
+  # Впливає на гілку валідації в OrderService.placeOrder.
+  max-quantity: 50
+  metrics:
+    rebuild-delay-ms: 600000
