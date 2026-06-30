@@ -1,0 +1,176 @@
+================================================================================
+  RAW INVENTORY INPUT — level07/task06 (store)
+  Дата: 2026-06-30
+  База: /Users/romanmakarenko/javarush/6512114/javarush-project
+  Task:  src/ua/javarush/claude/code/level07/task06/
+================================================================================
+
+1. СТЕК
+────────────────────────────────────────────────────────────────────────────────
+
+  Tier          | Технологія                  | Версія
+  ──────────────┼─────────────────────────────┼──────────
+  Мова (BE)     | Java                        | 17
+  Фреймворк     | Spring Boot                 | 3.2.5
+  Build (BE)    | Gradle + Kotlin DSL         | (не вказано, wrapper відсутній)
+  ORM           | Spring Data JPA             | (через BOM)
+  База даних    | PostgreSQL                  | 16
+  Мова (FE)     | JavaScript / JSX            | ES2020+
+  Фреймворк FE  | React                       | ^18.2.0
+  Build (FE)    | Vite                        | ^5.2.0
+  Тести (FE)    | Vitest                      | ^1.5.0
+  Пакунки (FE)  | npm                         | (lock-файл відсутній)
+  Інфра         | Docker Compose              | (для локальної БД)
+
+2. ВЕРХНЬОРІВНЕВІ ДИРЕКТОРІЇ ПРОЄКТУ
+────────────────────────────────────────────────────────────────────────────────
+
+  javarush-project/           # Корінь репозиторію
+   ├── .git/                  # Git-метадані
+   ├── .idea/                 # IntelliJ IDEA проєкт
+   ├── javarush-project.iml   # Модуль IDEA (plain Java, JDK 25)
+   ├── lib/                   # Локальна бібліотека: game-engine.jar (25 KB)
+   ├── out/                   # Скомпільовані класи
+   └── src/                   # Вихідний код всіх рівнів (level01–level07)
+
+3. ДЕРЕВО ЗАВДАННЯ level07/task06
+────────────────────────────────────────────────────────────────────────────────
+
+  task06/
+   ├── build.gradle.kts         # Gradle-збірка Spring Boot
+   ├── settings.gradle.kts      # rootProject.name = "store"
+   ├── docker-compose.yml       # PostgreSQL 16 для локальної розробки
+   ├── frontend/
+   │   └── package.json         # React / Vite / Vitest (лише скелет, коду нема)
+   ├── src/
+   │   ├── main/java/com/acme/store/
+   │   │   └── StoreApplication.java   # @SpringBootApplication — точка входу
+   │   └── test/java/com/acme/store/
+   │       └── StoreApplicationTest.java  # @SpringBootTest (contextLoads)
+   └── submissions/
+       └── RAW_INVENTORY_INPUT.txt      # Цей файл
+
+4. КОМАНДИ ЗАПУСКУ
+────────────────────────────────────────────────────────────────────────────────
+
+  Бекенд (із task06/):
+    gradle bootRun          # Запуск Spring Boot
+    gradle build            # Повна збірка + тести + JAR
+    gradle bootJar          # Тільки fat JAR
+    java -jar build/libs/store-0.1.0.jar   # Запуск зібраного JAR
+
+    ⚠ Gradle wrapper відсутній — потрібен встановлений локально Gradle
+      або запуск через IntelliJ IDEA.
+
+  Фронтенд (із task06/frontend/):
+    npm install            # Встановити залежності (перший раз)
+    npm run dev            # Vite dev-сервер
+    npm run build          # Vite production-білд
+
+  База даних (із task06/):
+    docker compose up -d   # Підняти PostgreSQL 16 на порту 5432
+    docker compose down    # Зупинити БД
+
+5. КОМАНДИ ТЕСТІВ
+────────────────────────────────────────────────────────────────────────────────
+
+  Бекенд (із task06/):
+    gradle test            # JUnit 5 (JUnit Platform)
+
+  Фронтенд (із task06/frontend/):
+    npm test               # vitest run (поки що тестів немає)
+
+6. ВАЖЛИВІ КОНФІГ-ФАЙЛИ
+────────────────────────────────────────────────────────────────────────────────
+
+  Файл                               | Роль
+  ───────────────────────────────────┼──────────────────────────────────────────
+  build.gradle.kts                   | Збірка, залежності, плагіни, версія Java
+  settings.gradle.kts                | Ім'я Gradle-проєкту ("store")
+  frontend/package.json              | Версії React/Vite/Vitest, npm-скрипти
+  docker-compose.yml                 | PostgreSQL: база "store", юзер/пароль,
+                                     | порт 5432, volumes.
+
+  ВІДСУТНІ (потенційно проблемно):
+    src/main/resources/               — каталог не створено
+    application.properties/.yml      — Spring Boot без конфігурації, усі
+                                       налаштування доведеться передавати через
+                                       ENV або CLI-аргументи
+    logback.xml                       — Spring Boot використає default
+    gradlew / gradlew.bat /          — Gradle wrapper; без нього збірка
+      gradle/wrapper/                  залежить від локально встановленої версії
+
+7. КЛЮЧОВІ ЗНАХІДКИ
+────────────────────────────────────────────────────────────────────────────────
+
+  * Завдання — гібридний full-stack проєкт (backend + frontend в одному
+    репозиторії, але з окремими build-системами).
+  * Фронтенд — поки що тільки package.json без жодного React-компонента
+    або Vite-конфігурації.
+  * Spring Boot застосунок без src/main/resources/ — при запуску буде
+    використано дефолтні налаштування, що означає:
+    - Сервер стартує на порту 8080
+    - Datasource не сконфігуровано — application.properties обов'язковий
+      перед підключенням до БД
+    - Без нього bootRun впаде з помилкою "Failed to configure a DataSource"
+  * Єдиний тест (StoreApplicationTest) перевіряє лише підняття контексту.
+  * lib/game-engine.jar — зовнішня залежність, але не підключена в build.gradle.kts.
+  * Архітектура "багато окремих завдань в одному src/" — типова для
+    навчального курсу Javarush.
+
+8. POTENTIAL HIGH-RISK AREAS
+────────────────────────────────────────────────────────────────────────────────
+
+  [H1]  Відсутній application.properties → жодна JPA-сутність або
+        DataSource не налаштовані; перший же запуск із H2 за замовчуванням
+        (або без нього) упаде з помилкою конфігурації БД.
+  [H2]  Відсутній Gradle wrapper → неможливо гарантувати версію Gradle
+        при CI-збірці; збірка залежить від середовища розробника.
+  [H3]  Фронтенд без жодного вихідного файлу (тільки package.json) —
+        `npm run dev` запустить Vite, але сторінка буде порожньою /
+        помилка 404 на index.html.
+  [H4]  game-engine.jar у lib/ не підключено в build.gradle.kts —
+        якщо ця бібліотека потрібна, застосунок скомпілюється, але
+        runtime-виклики впадуть із ClassNotFoundException.
+  [H5]  Docker Compose має пароль у plaintext (store_local_dev_password)
+        та жорстко закодований порт 5432 — небезпечно для production.
+
+9. OPEN QUESTIONS
+────────────────────────────────────────────────────────────────────────────────
+
+  [Q1]  Чи буде використовуватись game-engine.jar? Якщо так — потрібно
+        додати file-залежність у build.gradle.kts.
+  [Q2]  Як буде налаштовуватись DataSource — через application.properties,
+        application.yml чи виключно ENV-змінні?
+  [Q3]  Яку версію Gradle очікувати? Без wrapper це не зафіксовано.
+  [Q4]  Чи потрібен Spring Security або інший захист ендпоінтів?
+        (залежність не додана).
+  [Q5]  Який порт і хост для фронтенду? Vite dev-сервер за замовчуванням
+        створює власний HTTP-сервер, а backend (Spring Boot) — інший.
+        Чи використовується proxy в Vite config (якого поки немає)?
+  [Q6]  Чи передбачена міграція схеми БД (Liquibase/Flyway)?
+        Залежності відсутні. Можна сподіватись на spring.jpa.hibernate.ddl-auto.
+
+================================================================================
+  КОМАНДИ ЗБОРУ (для відтворення цього файлу)
+================================================================================
+
+  # Повне дерево task06
+  find src/ua/javarush/claude/code/level07/task06 -type f | sort
+
+  # Всі build-маніфести
+  cat src/ua/javarush/claude/code/level07/task06/build.gradle.kts
+  cat src/ua/javarush/claude/code/level07/task06/settings.gradle.kts
+  cat src/ua/javarush/claude/code/level07/task06/frontend/package.json
+
+  # Docker Compose
+  cat src/ua/javarush/claude/code/level07/task06/docker-compose.yml
+
+  # Джерела та тести
+  cat src/ua/javarush/claude/code/level07/task06/src/main/java/com/acme/store/StoreApplication.java
+  cat src/ua/javarush/claude/code/level07/task06/src/test/java/com/acme/store/StoreApplicationTest.java
+
+  # Верхньорівневі директорії кореня проєкту
+  ls -la
+
+================================================================================
