@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: commerce-os-shop
+
+payments:
+  stripe:
+    api-key: ${STRIPE_API_KEY}
+
+security:
+  customer-session:
+    cookie-name: cos_session
