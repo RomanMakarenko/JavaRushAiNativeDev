@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: example-shop
+
+server:
+  port: 8080
+
+payments:
+  base-url: ${PAYMENTS_BASE_URL:http://localhost:9090}
