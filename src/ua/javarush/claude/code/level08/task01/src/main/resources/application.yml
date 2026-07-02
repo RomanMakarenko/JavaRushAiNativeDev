@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: commerce-os-shop
+
+payments:
+  stripe:
+    api-key: ${STRIPE_API_KEY}
+
+queues:
+  order-events-url: ${QUEUE_URL}
+
+refunds:
+  inbox-page-size: 20
