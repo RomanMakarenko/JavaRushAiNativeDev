@@ -1,0 +1,30 @@
+gradle test --tests "com.example.shop.checkout.CheckoutControllerTest" --info
+======================================================================
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test FAILED
+
+CheckoutControllerTest > createOrder_validationFails() FAILED
+    java.lang.NullPointerException: Cannot invoke "String.trim()" because the return value of "com.example.shop.checkout.CheckoutRequest.customerEmail()" is null
+        at com.example.shop.checkout.CheckoutService.create(CheckoutService.java:12)
+        at com.example.shop.checkout.CheckoutController.checkout(CheckoutController.java:24)
+        at com.example.shop.checkout.CheckoutControllerTest.createOrder_validationFails(CheckoutControllerTest.java:21)
+
+1 test completed, 1 failed
+
+Generating HTML test report...
+Finished generating test html results (0.007 secs) into: .../task03/build/reports/tests/test
+Finished generating test XML results (0.001 secs) into: .../task03/build/test-results/test
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':test'.
+> There were failing tests. See the report at:
+  file:///.../task03/build/reports/tests/test/index.html

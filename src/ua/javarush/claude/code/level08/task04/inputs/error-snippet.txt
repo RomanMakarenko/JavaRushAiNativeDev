@@ -1,0 +1,5 @@
+POST /api/coupons/validate  ->  500 Internal Server Error
+
+java.lang.NullPointerException: Cannot invoke "String.toUpperCase()" because "code" is null
+    at com.example.shop.coupons.CouponService.validate(CouponService.java:12)
+    at com.example.shop.coupons.CouponController.validate(CouponController.java:21)
