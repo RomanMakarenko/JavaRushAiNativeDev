@@ -1,0 +1,13 @@
+/clear
+/compact
+/context
+/debug
+/doctor
+/help
+/issue-analysis
+/jira
+/review
+/review-diff
+/simplify
+/status
+count: 12

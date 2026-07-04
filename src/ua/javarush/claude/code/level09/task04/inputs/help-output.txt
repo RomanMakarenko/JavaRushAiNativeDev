@@ -1,0 +1,23 @@
+/help
+
+Сеанс і контекст:
+  /clear
+  /compact
+  /context
+
+Діагностика:
+  /status
+  /doctor
+  /help
+
+Вбудовані workflows:
+  /debug
+  /review
+  /simplify
+
+Команди цього проєкту:
+  /issue-analysis
+  /review-diff
+
+Зовнішні інтеграції:
+  /jira
