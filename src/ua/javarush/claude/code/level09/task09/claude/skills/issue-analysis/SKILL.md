@@ -15,64 +15,16 @@ description: Перетворює вхідний issue на перевірюва
 ## Дії
 1. Прочитайте issue.
 2. Знайдіть 2–5 найбільш релевантних файлів.
-3. Заповніть шаблон нижче.
+3. Заповніть [`templates/TASK_SPEC.template.md`](templates/TASK_SPEC.template.md) — це єдиний зразок.
 4. Відокремте факти від припущень.
-5. Поверніть TASK_SPEC.md без початку реалізації.
+5. Поверніть `TASK_SPEC.md` без початку реалізації.
 
-## Шаблон TASK_SPEC (заповнювати за цим зразком)
+## Ресурси
+- **Шаблон**: [`templates/TASK_SPEC.template.md`](templates/TASK_SPEC.template.md) — обов'язковий формат вихідного файлу.
+- **Приклад**: [`examples/refund-sorting.md`](examples/refund-sorting.md) — заповнений TASK_SPEC для RF-217 (сортування повернень).
 
-# TASK SPEC
-
-## Goal
-Одне речення про перевірюваний результат. Наприклад: inbox повернень
-сортується за пріоритетом, у межах пріоритету — старі раніше.
-
-## Scope
-Що саме змінюємо. Перелічити зачеплені файли та шари. Наприклад:
-серверне сортування в модулі підтримки, без змін фронтенда.
-
-## Non-goals
-Що свідомо НЕ чіпаємо. Наприклад: схема БД, контракт API, UI inbox.
-
-## Acceptance criteria
-Список перевірюваних умов. Наприклад:
-- список відсортований за спаданням priority;
-- у межах одного priority порядок за createdAt за зростанням;
-- наявні тести модуля підтримки зелені.
-
-## Verification
-Як перевіряємо. Наприклад: unit-тест на RefundRequestSorter, запуск
-gradle test для модуля підтримки.
-
-## Open questions
-Список того, чого бракує в issue.
-
-## Приклад заповненого TASK_SPEC для RF-217
-
-# TASK SPEC
-
-## Goal
-Запити на повернення в inbox ідуть спочатку за високим пріоритетом, у межах
-пріоритету — від старих до нових.
-
-## Scope
-Серверне сортування в `RefundRequestSorter.java`, виклик із
-`RefundQueueService.java`.
-
-## Non-goals
-Не змінюємо фронтенд inbox, схему БД і контракт REST API.
-
-## Acceptance criteria
-- сортування за спаданням priority;
-- у межах priority — за зростанням createdAt;
-- тести модуля підтримки зелені.
-
-## Verification
-Unit-тест на RefundRequestSorter; gradle test модуля підтримки.
-
-## Open questions
-- Що вважати «високим пріоритетом» — який діапазон значень priority?
-- Чи потрібен стабільний порядок за однакових createdAt?
+## Output contract
+Вихідний артефакт — `TASK_SPEC.md`, заповнений за шаблоном. Містить Goal, Scope, Non-goals, Acceptance criteria, Verification, Open questions. Реалізацію починати заборонено.
 
 ## Обмеження
 - Не починати реалізацію.
