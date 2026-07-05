@@ -1,0 +1,10 @@
+{
+  "name": "team-review-kit",
+  "namespace": "review-kit",
+  "version": "0.3.1",
+  "description": "Набір навичок для code review та підготовки pull request",
+  "skills": [
+    "review",
+    "pr-review"
+  ]
+}

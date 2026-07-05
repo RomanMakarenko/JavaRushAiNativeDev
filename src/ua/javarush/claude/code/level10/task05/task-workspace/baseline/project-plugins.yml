@@ -1,0 +1,12 @@
+# Базова конфігурація вибраних плагінів проєкту.
+# scope визначає радіус впливу (blast radius) плагіна.
+# Дозволені значення: user, local, project, managed.
+plugins:
+  - name: team-review-kit
+    namespace: review-kit
+    version: 0.3.1
+    scope: project
+  - name: docs-kit
+    namespace: docs-kit
+    version: 1.2.0
+    scope: project
