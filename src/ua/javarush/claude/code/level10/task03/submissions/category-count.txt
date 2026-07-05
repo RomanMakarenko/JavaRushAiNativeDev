@@ -1,0 +1,6 @@
+Category count:
+browser-automation: 2
+code-review: 3
+frontend-design: 2
+project-memory: 2
+security: 1
