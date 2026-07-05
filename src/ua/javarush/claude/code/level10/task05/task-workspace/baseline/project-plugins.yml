@@ -5,7 +5,7 @@ plugins:
   - name: team-review-kit
     namespace: review-kit
     version: 0.3.1
-    scope: project
+    scope: local
   - name: docs-kit
     namespace: docs-kit
     version: 1.2.0
