@@ -1,0 +1,11 @@
+name,category,stars
+diff-reviewer,code-review,1240
+pr-summarizer,code-review,860
+review-buddy,code-review,410
+browser-bot,browser-automation,3120
+click-runner,browser-automation,1980
+ui-styler,frontend-design,2750
+theme-forge,frontend-design,1530
+project-memory,project-memory,690
+context-keeper,project-memory,520
+dep-scanner,security,1100
