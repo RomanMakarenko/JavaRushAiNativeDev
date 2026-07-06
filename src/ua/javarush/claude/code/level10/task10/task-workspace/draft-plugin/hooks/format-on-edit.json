@@ -1,0 +1,6 @@
+{
+  "event": "after-edit",
+  "matcher": "**/*.java",
+  "handler": "run-formatter",
+  "note": "Автоформат після кожного редагування Java-файлу."
+}

@@ -1,0 +1,6 @@
+{
+  "server": "issue-tracker",
+  "transport": "stdio",
+  "scope": "project",
+  "note": "Зовнішнє підключення до трекера задач. Потребує окремої розмови про права та auth."
+}

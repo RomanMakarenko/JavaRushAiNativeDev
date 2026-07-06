@@ -1,2 +1,16 @@
 {
+  "name": "team-review-kit",
+  "version": "0.1.0",
+  "description": "Інструменти для командної перевірки коду та аналізу задач",
+  "namespace": "io.javarush.team-review",
+  "components": [
+    {
+      "type": "skill",
+      "path": "skills/pr-review/SKILL.md"
+    },
+    {
+      "type": "skill",
+      "path": "skills/issue-analysis/SKILL.md"
+    }
+  ]
 }

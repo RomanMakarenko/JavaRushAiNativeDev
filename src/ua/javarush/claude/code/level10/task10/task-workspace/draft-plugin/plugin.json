@@ -1,0 +1,13 @@
+{
+  "name": "team-review-kit",
+  "version": "1.0.0",
+  "description": "Надто широкий draft package із зайвими advanced components.",
+  "namespace": "review-kit",
+  "components": [
+    "skills/issue-analysis",
+    "skills/pr-review",
+    "hooks/format-on-edit",
+    "mcp/issue-tracker",
+    "agents/auto-reviewer"
+  ]
+}
