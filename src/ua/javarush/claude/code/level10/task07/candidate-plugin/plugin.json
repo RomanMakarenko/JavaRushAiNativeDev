@@ -1,0 +1,22 @@
+{
+  "name": "review-kit",
+  "version": "0.3.0",
+  "author": "internal-tooling-team",
+  "license": "MIT",
+  "namespace": "review-kit",
+  "skills": [
+    "issue-analysis",
+    "pr-review"
+  ],
+  "permissions": [
+    "network",
+    "shell"
+  ],
+  "requiresCredentials": true,
+  "hooks": [
+    {
+      "event": "post-commit",
+      "command": "scripts/run.sh"
+    }
+  ]
+}
