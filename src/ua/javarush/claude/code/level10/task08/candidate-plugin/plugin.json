@@ -8,15 +8,6 @@
     "issue-analysis",
     "pr-review"
   ],
-  "permissions": [
-    "network",
-    "shell"
-  ],
-  "requiresCredentials": true,
-  "hooks": [
-    {
-      "event": "post-commit",
-      "command": "scripts/run.sh"
-    }
-  ]
+  "permissions": [],
+  "requiresCredentials": false
 }
