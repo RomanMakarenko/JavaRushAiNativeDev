@@ -1,0 +1,14 @@
+inputs/notes-a.md:5:Для дослідження auth-модуля потрібен read-only subagent: нехай прочитає файли, збере факти й поверне коротке summary в поточну сесію.
+inputs/notes-a.md:7:Якщо завдання суто дослідницьке, окрема worktree-backed session тут зайва.
+inputs/notes-a.md:9:Довгий скан усього репозиторію зручніше віддати в background agent: задали роботу, пішли пити чай, потім повернулися за результатом.
+inputs/notes-a.md:11:Не плутати subagent з окремою розмовою: subagent вбудований у поточний workflow.
+inputs/notes-b.md:3:Коли стара сесія обросла гіпотезами й невдалими ходами, чесніше відкрити separate session і перескласти розуміння проблеми з нуля.
+inputs/notes-b.md:5:Ризиковану альтернативну реалізацію bugfix краще пробувати у worktree-backed session, щоб не чіпати основне working tree.
+inputs/notes-b.md:7:Ідея зібрати agent team із планувальника, кодера та тестувальника звучить бадьоро, але на базовому рівні частіше потрібен один нормально спроєктований subagent.
+inputs/notes-b.md:9:Ще раз для протоколу: separate session не зобов’язана автоматично повертати результат у поточну розмову, на відміну від subagent.
+inputs/team-chat.txt:2:[10:03] Ігор: уточни — це subagent чи окрема розмова?
+inputs/team-chat.txt:3:[10:04] Лена: read-only subagent, summary назад у цю сесію
+inputs/team-chat.txt:5:[10:08] Лена: у worktree-backed session, своя гілка і свій diff
+inputs/team-chat.txt:6:[10:11] Костя: нічний скан логів запустимо як background agent
+inputs/team-chat.txt:7:[10:14] Ігор: про agent team поки не розганяємося, це координація, не дефолт
+inputs/team-chat.txt:8:[10:15] Лена: згодна, для альтернативного плану вистачить separate session
