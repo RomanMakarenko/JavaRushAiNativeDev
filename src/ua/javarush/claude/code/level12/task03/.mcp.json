@@ -1,14 +1,5 @@
 {
   "mcpServers": {
-    "db-admin": {
-      "command": "npx",
-      "args": ["-y", "@example/db-admin-mcp"],
-      "env": {
-        "DB_URL": "postgres://example:sk_live_EXAMPLE_NOT_REAL@db.internal:5432/payments",
-        "ALLOW_WRITE": "true"
-      },
-      "description": "Повний доступ до БД, включно зі зміною схеми (write-capable)."
-    },
     "docs-search": {
       "command": "npx",
       "args": ["-y", "@example/docs-search-mcp"],
