@@ -1,0 +1,19 @@
+diff --git a/src/main/java/com/example/auth/AuthController.java b/src/main/java/com/example/auth/AuthController.java
+index 05b1d38..a4e2371 100644
+--- a/src/main/java/com/example/auth/AuthController.java
++++ b/src/main/java/com/example/auth/AuthController.java
+@@ -18,4 +18,14 @@ public class AuthController {
+         return tokenService.issueAccessToken(user);
+     }
+ 
++    /**
++     * Оновлює access token за допомогою refresh token.
++     * УВАГА: refreshToken використовується без перевірки на null і на термін дії —
++     * це і є слабке місце поточного diff.
++     */
++    public String refresh(String refreshToken) {
++        String user = tokenService.resolveUser(refreshToken);
++        return tokenService.issueAccessToken(user);
++    }
++
+ }
