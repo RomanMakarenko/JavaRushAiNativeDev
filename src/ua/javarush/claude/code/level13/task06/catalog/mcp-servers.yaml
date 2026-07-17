@@ -1,0 +1,22 @@
+# Каталог зовнішніх MCP-серверів Commerce OS.
+# Поточний стан: категорії не вказані, read-only і write-capable
+# інструменти перемішано в одному списку. Потрібно привести до суворої форми.
+servers:
+  - name: issue-tracker
+    tools:
+      - get_issue
+      - list_issues
+      - create_issue
+      - update_issue
+
+  - name: pr-review
+    tools:
+      - get_pull_request
+      - get_diff
+      - post_comment
+      - merge_pull_request
+
+  - name: docs-lookup
+    tools:
+      - search_docs
+      - get_doc_page
