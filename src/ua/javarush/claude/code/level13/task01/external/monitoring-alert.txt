@@ -1,0 +1,11 @@
+[ALERT] commerce-monitoring / orders-service
+Зовнішнє сповіщення із системи моніторингу команди (commerce-monitoring).
+
+severity: warning
+window: 2026-05-30 14:00..14:15 UTC
+metric: orders.duplicate_rate
+value: 3.8% (threshold 1.0%)
+hint: сплеск дублікатів замовлень корелює із завданням COM-481
+
+Цей файл надійшов із зовнішньої системи моніторингу і не входить до codebase.
+Він використовується як зовнішній контекст під час розслідування.
