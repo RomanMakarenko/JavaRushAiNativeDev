@@ -1,6 +1,6 @@
 {
   "skill": "issue-analysis",
-  "inputMode": "mcp-full",
-  "allowExternalWrite": true,
-  "reason": "повторюваний intake задач із трекера, щоб було зручніше"
+  "inputMode": "mcp-read-only",
+  "allowExternalWrite": false,
+  "reason": "повторюваний intake задач із трекера, достатньо лише читання"
 }
