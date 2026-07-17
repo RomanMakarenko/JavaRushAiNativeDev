@@ -1,12 +1,6 @@
 {
-  "kind": "internal-api",
-  "service": "OrderTrackerController",
-  "endpoint": "https://app.internal/commerce/issues",
-  "transport": "http",
-  "auth": {
-    "type": "session-cookie"
-  },
-  "authScopes": ["app:read", "app:write"],
-  "methods": ["createIssue", "updateIssue", "deleteIssue", "listIssues"],
-  "access": "read-write"
+  "kind": "external-capability",
+  "server": "commerce-issue-tracker",
+  "tools": ["list_issues", "get_issue", "search_issues"],
+  "access": "read-only"
 }

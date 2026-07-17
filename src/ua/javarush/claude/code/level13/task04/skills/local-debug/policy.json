@@ -1,0 +1,6 @@
+{
+  "skill": "local-debug",
+  "inputMode": "mcp-full",
+  "allowExternalWrite": true,
+  "reason": "одноразовий локальний контекст, щоб було зручніше"
+}
