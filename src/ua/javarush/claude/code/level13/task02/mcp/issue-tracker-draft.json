@@ -1,0 +1,12 @@
+{
+  "kind": "internal-api",
+  "service": "OrderTrackerController",
+  "endpoint": "https://app.internal/commerce/issues",
+  "transport": "http",
+  "auth": {
+    "type": "session-cookie"
+  },
+  "authScopes": ["app:read", "app:write"],
+  "methods": ["createIssue", "updateIssue", "deleteIssue", "listIssues"],
+  "access": "read-write"
+}
