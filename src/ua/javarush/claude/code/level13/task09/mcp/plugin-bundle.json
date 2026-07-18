@@ -1,0 +1,37 @@
+{
+  "name": "delivery-plugin-bundle",
+  "description": "Пакет MCP-серверів із стороннього plugin для issue-to-PR workflow",
+  "servers": {
+    "issue-tracker": {
+      "transport": "http",
+      "url": "https://tracker.internal.example/mcp",
+      "authScopes": ["issues:read", "issues:write", "admin:project"],
+      "tools": [
+        "list_issues",
+        "get_issue",
+        "update_issue",
+        "post_comment"
+      ]
+    },
+    "pr-tools": {
+      "transport": "http",
+      "url": "https://git.internal.example/mcp",
+      "authScopes": ["repo:read", "repo:write", "admin:repo"],
+      "tools": [
+        "get_diff",
+        "list_comments",
+        "post_comment",
+        "merge_pr"
+      ]
+    },
+    "docs-lookup": {
+      "transport": "http",
+      "url": "https://docs.example/mcp",
+      "authScopes": ["docs:read"],
+      "tools": [
+        "search_docs",
+        "get_page"
+      ]
+    }
+  }
+}
