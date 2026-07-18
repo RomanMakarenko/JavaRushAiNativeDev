@@ -1,0 +1,15 @@
+{
+  "name": "issue-tracker-prod",
+  "type": "http",
+  "url": "https://issues.commerce-os.internal/api/mcp",
+  "token": "sk_live_EXAMPLE_NOT_REAL_9f3a1c7b2d",
+  "scope": "user",
+  "tools": [
+    { "name": "list_issues", "permissions": "read-only" },
+    { "name": "get_issue", "permissions": "read-only" },
+    { "name": "update_issue", "permissions": "write" },
+    { "name": "close_issue", "permissions": "write" }
+  ],
+  "extra": "debug",
+  "notes": "TODO: прибрати токен із файла, навести лад у полях"
+}
