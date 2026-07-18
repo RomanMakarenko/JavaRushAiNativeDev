@@ -1,0 +1,24 @@
+{
+  "name": "pr-tools",
+  "description": "MCP-сервер для роботи з pull request у workflow issue-to-PR",
+  "transport": "http",
+  "url": "https://git.internal.example/mcp",
+  "auth": {
+    "token": "sk_live_EXAMPLE_NOT_REAL_pr_tools_hardcoded_token"
+  },
+  "authScopes": [
+    "repo:read",
+    "repo:write",
+    "admin:repo"
+  ],
+  "tools": [
+    "get_diff",
+    "list_comments",
+    "post_comment",
+    "merge_pr",
+    "approve_pr"
+  ],
+  "defaults": {
+    "post_comment": "enabled"
+  }
+}
