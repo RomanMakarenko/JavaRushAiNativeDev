@@ -1,0 +1,12 @@
+{
+  "name": "docs-lookup",
+  "transport": "stdio",
+  "command": "python",
+  "args": ["scripts/docs_server.py"],
+  "scope": "local",
+  "auth": "none",
+  "tools": [
+    { "name": "search_docs", "permissions": "read-only" }
+  ],
+  "notes": "Локальний docs-сервер для експериментів, запускається поруч із проєктом."
+}

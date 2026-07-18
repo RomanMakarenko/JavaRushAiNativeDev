@@ -1,0 +1,14 @@
+{
+  "name": "issue-tracker",
+  "transport": "http",
+  "endpoint": "${ISSUE_TRACKER_URL}",
+  "auth": "oauth",
+  "authScopes": ["read:issues"],
+  "tools": [
+    { "name": "list_issues", "permissions": "read-only" },
+    { "name": "get_issue", "permissions": "read-only" },
+    { "name": "search_issues", "permissions": "read-only" }
+  ],
+  "scope": "project",
+  "notes": "Read-only access for Commerce OS issue analysis."
+}
