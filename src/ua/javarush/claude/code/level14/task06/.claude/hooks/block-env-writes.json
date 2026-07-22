@@ -1,0 +1,10 @@
+{
+  "event": "beforeToolUse",
+  "matcher": {
+    "paths": ["**/.env*"],
+    "tool": "Write"
+  },
+  "handler": {
+    "command": "scripts/block-env-write.sh {{file}}"
+  }
+}
