@@ -1,0 +1,14 @@
+{
+  "tool": "issue-tracker",
+  "mode": "write-capable",
+  "scope": "all-projects",
+  "allowedActions": [
+    "getIssue",
+    "listComments",
+    "searchByLabel",
+    "commentIssue",
+    "closeIssue"
+  ],
+  "credentials": "env:ISSUE_TRACKER_TOKEN",
+  "killSwitchPath": ".claude/tool-policies/issue-tracker.json"
+}
