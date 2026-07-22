@@ -1,0 +1,6 @@
+{
+  "name": "format-on-edit",
+  "event": "afterFileEdit",
+  "matcher": { "paths": ["frontend/src/**/*"] },
+  "handler": { "command": "scripts/format-on-edit.sh {{file}}" }
+}
