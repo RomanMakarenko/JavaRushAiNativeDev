@@ -1,0 +1,11 @@
+{
+  "name": "lint-report",
+  "stage": "log-only",
+  "category": "non-blocking",
+  "event": "afterFileEdit",
+  "matcher": { "paths": ["frontend/src/**/*.{ts,tsx}"] },
+  "handler": {
+    "command": "scripts/log-format-candidate.sh {{file}}",
+    "blocking": false
+  }
+}
