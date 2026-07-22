@@ -1,2 +1,9 @@
 {
+  "event": "afterFileEdit",
+  "matcher": {
+    "paths": ["frontend/src/**/*.{ts,tsx}"]
+  },
+  "handler": {
+    "command": "scripts/log-format-candidate.sh {{file}}"
+  }
 }
