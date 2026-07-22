@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "docs-lookup": {
+      "command": "python",
+      "args": ["tools/mock_docs_lookup.py"],
+      "description": "Локальний read-only docs lookup з витягами з документації FastAPI",
+      "env": {
+        "DOCS_FIXTURES_DIR": "fixtures/docs"
+      }
+    }
+  }
+}
