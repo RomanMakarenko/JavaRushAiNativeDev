@@ -1,0 +1,8 @@
+task: COM-512
+size: large
+workstreams_independent: yes      # backend, UI і tests розведені по каталогах
+ownership_split_by: modules        # src/api/orders, src/web/orders, tests/orders
+tests_available: unit              # тести потоку замовлень запускаються незалежно
+shared_state_risk: low             # API-контракт заморожено
+api_contract_frozen: yes
+human_bandwidth_available: yes
