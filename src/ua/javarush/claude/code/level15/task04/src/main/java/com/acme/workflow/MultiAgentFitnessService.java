@@ -6,7 +6,12 @@ package com.acme.workflow;
 public class MultiAgentFitnessService {
 
     public boolean isMultiAgentJustified(FitnessSignals signals) {
-        // Неправильна логіка: розмір завдання — єдиний критерій.
-        return signals.isLarge();
+        if (signals.isSharedStateHigh()) {
+            return false;
+        }
+        if (!signals.isTestsAvailable()) {
+            return false;
+        }
+        return signals.isLarge() && signals.getIndependentWorkstreams() >= 2;
     }
 }
