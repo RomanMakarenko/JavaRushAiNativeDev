@@ -1,0 +1,10 @@
+$ find src/main/java -type f
+src/main/java/com/acme/orders/Order.java
+src/main/java/com/acme/orders/OrderExportController.java
+src/main/java/com/acme/orders/OrderExportService.java
+
+$ find src/test/java -type f
+src/test/java/com/acme/orders/OrderExportServiceTest.java
+
+$ echo "Pattern: Strategy - because tests exist for interchangeable behavior and changes are isolated to algorithm implementations"
+Pattern: Strategy - because tests exist for interchangeable behavior and changes are isolated to algorithm implementations
