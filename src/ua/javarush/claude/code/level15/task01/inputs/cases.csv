@@ -1,0 +1,6 @@
+case_id,title,size,workstreams,parallel_edits,needs_fresh_context,risk
+CASE-1,Виправити текст кнопки refund у кошику,small,1,no,no,low
+CASE-2,Локалізувати причину неправильної сортування refund inbox,medium,1,no,yes,medium
+CASE-3,Порівняти дві реалізації фільтрації orders,medium,2,yes,no,medium
+CASE-4,Незалежний review diff для orders API після implementation,small,1,no,yes,low
+CASE-5,Паралельна міграція billing і переписування auth-шару,large,3,yes,yes,high
