@@ -8,14 +8,16 @@ import java.util.Set;
  * Для conceptual team допустиме лише read-only investigation: фінальне
  * рішення, review і merge залишаються за людиною.
  *
- * BUG: поточний набір forbidden занадто вузький — небезпечні обіцянки AUTO_MERGE,
- * NO_REVIEW і AUTONOMOUS_PRODUCTION проходять як допустимі.
+ * У забороненому наборі: AUTO_MERGE, NO_REVIEW, AUTONOMOUS_PRODUCTION.
+ * Допустиме лише READ_ONLY_INVESTIGATION.
  */
 public class TeamPromiseValidator {
 
-    // Зараз тут немає жодної справді небезпечної обіцянки,
-    // тому валідатор пропускає все підряд.
-    private static final Set<TeamPromise> FORBIDDEN = Set.of();
+    private static final Set<TeamPromise> FORBIDDEN = Set.of(
+            TeamPromise.AUTO_MERGE,
+            TeamPromise.NO_REVIEW,
+            TeamPromise.AUTONOMOUS_PRODUCTION
+    );
 
     /**
      * Повертає true, якщо обіцянка заборонена для conceptual team.

@@ -15,10 +15,21 @@ class TeamPromiseValidatorTest {
         assertTrue(validator.isAllowed(TeamPromise.READ_ONLY_INVESTIGATION));
     }
 
-    // TODO: додати regression tests на заборонені обіцянки
-    // AUTO_MERGE, NO_REVIEW, AUTONOMOUS_PRODUCTION.
     @Test
     void autoMergeIsForbidden() {
-        assertFalse(validator.isForbidden(TeamPromise.AUTO_MERGE));
+        assertFalse(validator.isAllowed(TeamPromise.AUTO_MERGE));
+        assertTrue(validator.isForbidden(TeamPromise.AUTO_MERGE));
+    }
+
+    @Test
+    void noReviewIsForbidden() {
+        assertFalse(validator.isAllowed(TeamPromise.NO_REVIEW));
+        assertTrue(validator.isForbidden(TeamPromise.NO_REVIEW));
+    }
+
+    @Test
+    void autonomousProductionIsForbidden() {
+        assertFalse(validator.isAllowed(TeamPromise.AUTONOMOUS_PRODUCTION));
+        assertTrue(validator.isForbidden(TeamPromise.AUTONOMOUS_PRODUCTION));
     }
 }
