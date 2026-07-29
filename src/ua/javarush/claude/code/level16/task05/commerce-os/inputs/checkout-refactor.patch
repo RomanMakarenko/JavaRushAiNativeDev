@@ -1,0 +1,17 @@
+diff --git a/src/main/java/com/example/store/checkout/CartTotal.java b/src/main/java/com/example/store/checkout/CartTotal.java
+index 9f61639..4113016 100644
+--- a/src/main/java/com/example/store/checkout/CartTotal.java
++++ b/src/main/java/com/example/store/checkout/CartTotal.java
+@@ -9,9 +9,10 @@ import java.math.BigDecimal;
+ public class CartTotal {
+ 
+     public BigDecimal total(BigDecimal subtotal, BigDecimal discount, BigDecimal taxRate) {
+-        // База main: знижка застосовується до subtotal, потім обчислюється податок
++        // checkout-refactor: явний порядок subtotal -> discount -> tax
+         BigDecimal afterDiscount = subtotal.subtract(discount);
+         BigDecimal tax = afterDiscount.multiply(taxRate);
+-        return afterDiscount.add(tax);
++        BigDecimal result = afterDiscount.add(tax);
++        return result.setScale(2, java.math.RoundingMode.HALF_UP);
+     }
+ }

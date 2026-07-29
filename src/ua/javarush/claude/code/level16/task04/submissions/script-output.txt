@@ -1,0 +1,1 @@
+handoff записано у submissions/handoff.json
