@@ -1,0 +1,16 @@
+diff --git a/src/main/java/com/example/store/checkout/CheckoutController.java b/src/main/java/com/example/store/checkout/CheckoutController.java
+index 9a815f4..c8148a5 100644
+--- a/src/main/java/com/example/store/checkout/CheckoutController.java
++++ b/src/main/java/com/example/store/checkout/CheckoutController.java
+@@ -7,8 +7,8 @@ package com.example.store.checkout;
+  */
+ public class CheckoutController {
+ 
+-    // Поточна стабільна signature (без непов'язаної зміни API)
+-    public String summary() {
+-        return "checkout summary";
++    // Непов'язана зміна API: до signature додано параметр currency (поза межами завдання)
++    public String summary(String currency) {
++        return "checkout summary " + currency;
+     }
+ }

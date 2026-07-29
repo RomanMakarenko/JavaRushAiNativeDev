@@ -27,13 +27,13 @@ git branch -M main
 
 # Трек 1: рефакторинг обчислення підсумкової суми
 git checkout -q -b feature/checkout-refactor
-git apply inputs/checkout-refactor.patch
+git apply --ignore-whitespace inputs/checkout-refactor.patch
 git commit -q -am "checkout-refactor: округлення підсумкової суми"
 
 # Трек 2: підвищена promo-знижка для коду SUMMER
 git checkout -q main
 git checkout -q -b feature/promo-discount
-git apply inputs/promo-discount.patch
+git apply --ignore-whitespace inputs/promo-discount.patch
 git commit -q -am "promo-discount: знижка 15% для SUMMER"
 
 git checkout -q main

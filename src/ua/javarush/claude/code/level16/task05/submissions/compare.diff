@@ -1,0 +1,38 @@
+diff --git a/src/main/java/com/example/store/checkout/CartTotal.java b/src/main/java/com/example/store/checkout/CartTotal.java
+index b9f7e56..5a33827 100644
+--- a/src/main/java/com/example/store/checkout/CartTotal.java
++++ b/src/main/java/com/example/store/checkout/CartTotal.java
+@@ -9,10 +9,9 @@ import java.math.BigDecimal;
+ public class CartTotal {
+ 
+     public BigDecimal total(BigDecimal subtotal, BigDecimal discount, BigDecimal taxRate) {
+-        // checkout-refactor: явний порядок subtotal -> discount -> tax
++        // База main: знижка застосовується до subtotal, потім обчислюється податок
+         BigDecimal afterDiscount = subtotal.subtract(discount);
+         BigDecimal tax = afterDiscount.multiply(taxRate);
+-        BigDecimal result = afterDiscount.add(tax);
+-        return result.setScale(2, java.math.RoundingMode.HALF_UP);
++        return afterDiscount.add(tax);
+     }
+ }
+\ No newline at end of file
+diff --git a/src/main/java/com/example/store/promo/PromoEngine.java b/src/main/java/com/example/store/promo/PromoEngine.java
+index a02374f..1090189 100644
+--- a/src/main/java/com/example/store/promo/PromoEngine.java
++++ b/src/main/java/com/example/store/promo/PromoEngine.java
+@@ -9,10 +9,13 @@ import java.math.BigDecimal;
+ public class PromoEngine {
+ 
+     public BigDecimal discountFor(BigDecimal subtotal, String promoCode) {
+-        // База main: фіксована знижка 10% за будь-яким непорожнім промокодом
+         if (promoCode == null || promoCode.isBlank()) {
+             return BigDecimal.ZERO;
+         }
++        // promo-discount: підвищена знижка 15% для коду SUMMER
++        if ("SUMMER".equals(promoCode)) {
++            return subtotal.multiply(new BigDecimal("0.15"));
++        }
+         return subtotal.multiply(new BigDecimal("0.10"));
+     }
+ }
+\ No newline at end of file
