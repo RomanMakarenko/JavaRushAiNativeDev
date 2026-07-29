@@ -13,9 +13,11 @@ if [[ -z "$MANIFEST" || ! -f "$MANIFEST" ]]; then
 fi
 
 # Тут навмисна помилка: фіксоване unknown замість читання поля worktree.
-WORKTREE="unknown"
+WORKTREE="$(grep '^worktree:' "$MANIFEST" | awk '{print $2}')"
 BRANCH="$(grep '^branch:' "$MANIFEST" | awk '{print $2}')"
+STOP="$(grep '^stop_condition:' "$MANIFEST" | awk '{print $2}')"
 
 echo "track=$(grep '^track:' "$MANIFEST" | awk '{print $2}')"
 echo "worktree=$WORKTREE"
 echo "branch=$BRANCH"
+echo "stop condition=$STOP"

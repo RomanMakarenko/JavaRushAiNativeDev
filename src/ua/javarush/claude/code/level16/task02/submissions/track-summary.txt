@@ -1,0 +1,4 @@
+track=catalog-track
+worktree=worktrees/catalog-track
+branch=feature/catalog-track
+stop condition=diff<=200
