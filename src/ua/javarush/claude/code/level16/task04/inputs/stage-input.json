@@ -1,0 +1,10 @@
+{
+  "stage": "research",
+  "input_artifact": "inputs/issue.md",
+  "output_artifact": "artifacts/checkout-rounding/01_evidence_map.md",
+  "open_questions": [
+    "Порядок застосування знижки та ПДВ у багатовалютних замовленнях",
+    "Яке правило округлення очікується після конвертації валюти"
+  ],
+  "next_step": "планувальник готує artifacts/checkout-rounding/02_plan.md на основі evidence map"
+}
