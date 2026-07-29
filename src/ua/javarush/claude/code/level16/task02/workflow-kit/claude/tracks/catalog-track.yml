@@ -1,0 +1,7 @@
+# Маніфест паралельного треку catalog-track.
+# УВАГА: шлях worktree вказано неправильно, через що monitoring друкує
+# worktree=unknown. Поле branch і stop_condition теж треба привести до ладу.
+track: catalog-track
+worktree: worktrees/catalog-wrong-path
+branch: feature/catalog
+stop_condition: diff<=999

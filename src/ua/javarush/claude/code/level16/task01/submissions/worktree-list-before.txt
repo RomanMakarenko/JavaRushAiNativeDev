@@ -1,0 +1,2 @@
+/Users/romanmakarenko/javarush/6512114/javarush-project                                                                           49ac163 [main]
+/Users/romanmakarenko/javarush/6512114/javarush-project/src/ua/javarush/claude/code/level16/task01/worktrees/checkout-note-track  49ac163 [feature/checkout-note-track]
