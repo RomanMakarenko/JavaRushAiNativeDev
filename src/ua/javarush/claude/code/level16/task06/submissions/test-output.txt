@@ -1,0 +1,90 @@
+Initialized native services in: /Users/romanmakarenko/.gradle/native
+Initialized jansi services in: /Users/romanmakarenko/.gradle/native
+The client will now receive all logging from the daemon (pid: 16205). The daemon log file: /Users/romanmakarenko/.gradle/daemon/9.5.1/daemon-16205.out.log
+Starting 3rd build in daemon [uptime: 26.971 secs, performance: 99%, GC rate: 0.00/s, heap usage: 2% of 512 MiB, non-heap usage: 34% of 384 MiB]
+Using 10 worker leases.
+Operational build model parameters: {cachingModelBuilding=false, configurationCache=false, configurationCacheDisabledReason=null, configurationCacheParallelLoad=false, configurationCacheParallelStore=false, configureOnDemand=false, invalidateCoupledProjects=false, isolatedProjects=false, modelAsProjectDependency=false, modelBuilding=false, parallelModelBuilding=false, parallelProjectConfiguration=false, parallelProjectExecution=false, resilientModelBuilding=false}
+Now considering [/Users/romanmakarenko/javarush/6512114/javarush-project/src/ua/javarush/claude/code/level16/task06/commerce-os] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Settings evaluated using settings file '/Users/romanmakarenko/javarush/6512114/javarush-project/src/ua/javarush/claude/code/level16/task06/commerce-os/settings.gradle'.
+Projects loaded. Root project using build file '/Users/romanmakarenko/javarush/6512114/javarush-project/src/ua/javarush/claude/code/level16/task06/commerce-os/build.gradle.kts'.
+Included projects: [root project 'commerce-os']
+
+> Configure project :
+Evaluating root project 'commerce-os' using build file '/Users/romanmakarenko/javarush/6512114/javarush-project/src/ua/javarush/claude/code/level16/task06/commerce-os/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.java']
+All projects evaluated.
+Task name matched 'cleanTest'
+Task name matched 'test'
+Selected primary task 'cleanTest' from project :
+Selected primary task 'test' from project :
+Tasks to be executed: [task ':cleanTest', task ':compileJava', task ':processResources', task ':classes', task ':compileTestJava', task ':processTestResources', task ':testClasses', task ':test']
+Tasks that were excluded: []
+Resolve mutations for :cleanTest (Thread[#138,Execution worker,5,main]) started.
+:cleanTest (Thread[#138,Execution worker,5,main]) started.
+destroyer locations for task group 0 (Thread[#137,included builds,5,main]) started.
+
+> Task :cleanTest
+Caching disabled for task ':cleanTest' because:
+  Build cache is disabled
+Task ':cleanTest' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+Resolve mutations for :compileJava (Thread[#138,Execution worker,5,main]) started.
+:compileJava (Thread[#138,Execution worker,5,main]) started.
+
+> Task :compileJava UP-TO-DATE
+Caching disabled for task ':compileJava' because:
+  Build cache is disabled
+Skipping task ':compileJava' as it is up-to-date.
+Resolve mutations for :processResources (Thread[#138,Execution worker,5,main]) started.
+:processResources (Thread[#138,Execution worker,5,main]) started.
+
+> Task :processResources NO-SOURCE
+Skipping task ':processResources' as it has no source files and no previous output files.
+Resolve mutations for :classes (Thread[#138,Execution worker,5,main]) started.
+:classes (Thread[#138,Execution worker,5,main]) started.
+
+> Task :classes UP-TO-DATE
+Skipping task ':classes' as it has no actions.
+Resolve mutations for :compileTestJava (Thread[#138,Execution worker,5,main]) started.
+:compileTestJava (Thread[#138,Execution worker,5,main]) started.
+
+> Task :compileTestJava UP-TO-DATE
+Caching disabled for task ':compileTestJava' because:
+  Build cache is disabled
+Skipping task ':compileTestJava' as it is up-to-date.
+Resolve mutations for :processTestResources (Thread[#138,Execution worker,5,main]) started.
+:processTestResources (Thread[#138,Execution worker,5,main]) started.
+
+> Task :processTestResources NO-SOURCE
+Skipping task ':processTestResources' as it has no source files and no previous output files.
+Resolve mutations for :testClasses (Thread[#138,Execution worker,5,main]) started.
+:testClasses (Thread[#138,Execution worker,5,main]) started.
+
+> Task :testClasses UP-TO-DATE
+Skipping task ':testClasses' as it has no actions.
+Resolve mutations for :test (Thread[#138,Execution worker,5,main]) started.
+:test (Thread[#138,Execution worker,5,main]) started.
+Gradle Test Executor 2 started executing tests.
+Gradle Test Executor 2 finished executing tests.
+
+> Task :test
+Caching disabled for task ':test' because:
+  Build cache is disabled
+Task ':test' is not up-to-date because:
+  Output property 'binaryResultsDirectory' file /Users/romanmakarenko/javarush/6512114/javarush-project/src/ua/javarush/claude/code/level16/task06/commerce-os/build/test-results/test/binary has been removed.
+  Output property 'binaryResultsDirectory' file /Users/romanmakarenko/javarush/6512114/javarush-project/src/ua/javarush/claude/code/level16/task06/commerce-os/build/test-results/test/binary/output-events.bin has been removed.
+  Output property 'binaryResultsDirectory' file /Users/romanmakarenko/javarush/6512114/javarush-project/src/ua/javarush/claude/code/level16/task06/commerce-os/build/test-results/test/binary/results-generic.bin has been removed.
+  and more...
+Starting process 'Gradle Test Executor 2'. Working directory: /Users/romanmakarenko/javarush/6512114/javarush-project/src/ua/javarush/claude/code/level16/task06/commerce-os Command: /opt/homebrew/Cellar/openjdk@21/21.0.11/libexec/openjdk.jdk/Contents/Home/bin/java -Dorg.gradle.internal.worker.tmpdir=/Users/romanmakarenko/javarush/6512114/javarush-project/src/ua/javarush/claude/code/level16/task06/commerce-os/build/tmp/test/work @/Users/romanmakarenko/.gradle/.tmp/gradle-worker-classpath15393666269456390859txt -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=UA -Duser.language=en -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 2'
+Successfully started process 'Gradle Test Executor 2'
+Generating HTML test report...
+Finished generating test html results (0.003 secs) into: /Users/romanmakarenko/javarush/6512114/javarush-project/src/ua/javarush/claude/code/level16/task06/commerce-os/build/reports/tests/test
+Finished generating test XML results (0.001 secs) into: /Users/romanmakarenko/javarush/6512114/javarush-project/src/ua/javarush/claude/code/level16/task06/commerce-os/build/test-results/test
+
+BUILD SUCCESSFUL in 1s
+4 actionable tasks: 2 executed, 2 up-to-date
+Watched directory hierarchies: [/Users/romanmakarenko/javarush/6512114/javarush-project/src/ua/javarush/claude/code/level16/task06/commerce-os]
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.1/userguide/configuration_cache_enabling.html

@@ -1,0 +1,2 @@
+ src/main/java/com/example/store/promo/DiscountLabel.java | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)

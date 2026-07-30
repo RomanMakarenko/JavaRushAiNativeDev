@@ -7,7 +7,7 @@ package com.example.store.promo;
 public class DiscountLabel {
 
     public String render(int percent) {
-        // Старий текст мітки
-        return "Знижка " + percent + "%";
+        // Безпечна зміна мітки: оновлений текст мітки
+        return "Ваша знижка: " + percent + "%";
     }
 }

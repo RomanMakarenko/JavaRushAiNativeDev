@@ -1,14 +1,16 @@
 diff --git a/src/main/java/com/example/store/promo/DiscountLabel.java b/src/main/java/com/example/store/promo/DiscountLabel.java
-index cb6255c..a004253 100644
+index 90df329..4161f13 100644
 --- a/src/main/java/com/example/store/promo/DiscountLabel.java
 +++ b/src/main/java/com/example/store/promo/DiscountLabel.java
 @@ -7,7 +7,7 @@ package com.example.store.promo;
  public class DiscountLabel {
  
      public String render(int percent) {
--        // Старий текст label
--        return "Скидка " + percent + "%";
+-        // Старий текст мітки
+-        return "Знижка " + percent + "%";
 +        // Безпечна зміна мітки: оновлений текст мітки
 +        return "Ваша знижка: " + percent + "%";
      }
- }
+-}
+\ No newline at end of file
++}
