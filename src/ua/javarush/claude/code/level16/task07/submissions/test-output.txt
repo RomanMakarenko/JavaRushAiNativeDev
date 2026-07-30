@@ -1,0 +1,19 @@
+Starting a Gradle Daemon (subsequent builds will be faster)
+> Task :compileJava
+> Task :processResources NO-SOURCE
+> Task :classes
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+
+> Task :test
+
+CheckoutGateTest > emptyCartTotalIsZero() PASSED
+
+CheckoutGateTest > totalIncludesDiscount() PASSED
+
+CheckoutGateTest > totalRoundsHalfUp() PASSED
+
+BUILD SUCCESSFUL in 9s
+3 actionable tasks: 3 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.5.1/userguide/configuration_cache_enabling.html

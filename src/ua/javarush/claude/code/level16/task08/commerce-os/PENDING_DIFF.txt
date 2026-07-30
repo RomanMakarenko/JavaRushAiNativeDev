@@ -1,0 +1,18 @@
+diff --git a/src/main/java/com/example/store/CheckoutService.java b/src/main/java/com/example/store/CheckoutService.java
+index 1a2b3c4..5d6e7f8 100644
+--- a/src/main/java/com/example/store/CheckoutService.java
++++ b/src/main/java/com/example/store/CheckoutService.java
+@@ -12,9 +12,13 @@ public class CheckoutService {
+-    public BigDecimal calculateTotal(List<BigDecimal> lineItems) {
++    public BigDecimal calculateTotal(List<BigDecimal> lineItems, BigDecimal discountRate) {
+         BigDecimal subtotal = BigDecimal.ZERO;
+         for (BigDecimal item : lineItems) {
+             subtotal = subtotal.add(item);
+         }
+-        return subtotal.setScale(2, RoundingMode.HALF_UP);
++        // Pending change: застосовуємо знижку до проміжної суми
++        BigDecimal discount = subtotal.multiply(discountRate);
++        BigDecimal total = subtotal.subtract(discount);
++        return total.setScale(2, RoundingMode.HALF_UP);
+     }
+ }

@@ -1,0 +1,1 @@
+PASS: risk-note RISK_NOTE.md присутня і не пуста
