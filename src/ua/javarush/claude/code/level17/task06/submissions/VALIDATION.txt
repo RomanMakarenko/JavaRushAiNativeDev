@@ -1,0 +1,3 @@
+VALID: усі обов'язкові секції на місці
+Файл: docs/INVESTIGATION_NOTE.md
+Команда: python3 tools/validate_investigation.py docs/INVESTIGATION_NOTE.md
