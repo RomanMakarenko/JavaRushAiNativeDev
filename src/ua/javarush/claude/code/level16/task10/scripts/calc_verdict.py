@@ -16,8 +16,13 @@ def calc_verdict(metrics):
 
     Публічний інтерфейс: функція calc_verdict(metrics) -> str.
     """
-    if metrics.get("tests_green"):
+    tests_green = metrics.get("tests_green")
+    rework = metrics.get("rework_after_merge", 0)
+
+    if tests_green and rework == 0:
         return "advanced workflow justified"
+    if tests_green and rework > 0:
+        return "advanced workflow partially justified"
     return "advanced workflow not justified"
 
 
