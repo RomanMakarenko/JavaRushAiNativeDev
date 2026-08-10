@@ -18,6 +18,14 @@ public class OrderController {
     public ResponseEntity<Map<String, Object>> create(@RequestBody OrderRequest request) {
         List<OrderItem> items = request.items();
 
+        // Порожній кошик: замовлення неможливе. Повертаємо 400 замість 500.
+        if (items == null || items.isEmpty()) {
+            return ResponseEntity.badRequest().body(Map.of(
+                    "status", "BAD_REQUEST",
+                    "message", "Cart is empty"
+            ));
+        }
+
         // Беремо перший товар, щоб визначити валюту замовлення.
         OrderItem first = items.get(0);
         String currency = first.currency();
