@@ -17,9 +17,12 @@ public class CatalogController {
         this.catalogService = catalogService;
     }
 
-    // Поточний стан до кроку: limit обов’язковий, значення за замовчуванням відсутнє.
     @GetMapping
-    public List<Product> list(@RequestParam Integer limit) {
+    public List<Product> list(@RequestParam(required = false) Integer limit) {
+        // За замовчуванням, якщо limit не передано, використовуємо 20.
+        if (limit == null) {
+            limit = 20;
+        }
         return catalogService.findProducts(limit);
     }
 }
