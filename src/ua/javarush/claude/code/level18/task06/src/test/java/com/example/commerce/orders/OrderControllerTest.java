@@ -25,6 +25,8 @@ class OrderControllerTest {
                 .andExpect(status().isOk());
     }
 
+    // Уже наявний regression test для бага з порожнім кошиком.
+    // На поточному коді він червоний; задача — зробити його зеленим мінімальним fix.
     @Test
     void rejectsEmptyCart() throws Exception {
         String payload = "{\"items\":[]}";
