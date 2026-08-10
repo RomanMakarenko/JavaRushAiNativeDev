@@ -1,0 +1,11 @@
+Підсумок diff (issue-432):
+
+ src/main/java/com/example/commerce/orders/OrderController.java | 6 +++++-
+ src/test/java/com/example/commerce/orders/OrderControllerTest.java | 14 ++++++++++++++
+ 2 files changed, 19 insertions(+), 1 deletion(-)
+
+OrderController.java:
+  + рання перевірка порожнього/null кошика -> 400 Bad Request, тіло "Cart is empty"
+
+OrderControllerTest.java:
+  + тест returnsBadRequestForEmptyCart: POST /api/orders з items=[] -> очікується статус 400
