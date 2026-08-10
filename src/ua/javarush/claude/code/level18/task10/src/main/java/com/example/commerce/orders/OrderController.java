@@ -19,7 +19,7 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<?> createOrder(@RequestBody CreateOrderRequest request) {
-        // Порожній кошик: поточна реалізація повертає 422 (розходиться з approved plan).
+        // Порожній кошик: повертаємо 422 — не збігається зі схваленим планом (очікується 400).
         if (request.items() == null || request.items().isEmpty()) {
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Cart is empty");
         }
