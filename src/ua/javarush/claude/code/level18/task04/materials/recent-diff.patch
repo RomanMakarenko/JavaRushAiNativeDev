@@ -1,0 +1,24 @@
+commit 9f12ab3 — "simplify cart pricing"
+Author: dev <dev@example.com>
+Date:   2026-05-30
+
+diff --git a/src/main/java/com/example/commerce/orders/CheckoutService.java b/src/main/java/com/example/commerce/orders/CheckoutService.java
+index a1b2c3d..e4f5a6b 100644
+--- a/src/main/java/com/example/commerce/orders/CheckoutService.java
++++ b/src/main/java/com/example/commerce/orders/CheckoutService.java
+@@ -18,11 +18,9 @@ public class CheckoutService {
+
+     public long price(List<CartItem> items) {
+-        if (items == null || items.isEmpty()) {
+-            throw new EmptyCartException("cart is empty");
+-        }
+-        long total = 0;
+-        for (CartItem item : items) {
+-            total += item.price();
+-        }
++        // спростили: беремо перший елемент як еталонну ціну
++        CartItem first = items.get(0);
++        long total = first.price() * items.size();
+         return total;
+     }
+ }

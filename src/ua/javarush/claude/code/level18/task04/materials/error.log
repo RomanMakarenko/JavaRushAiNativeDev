@@ -1,0 +1,8 @@
+2026-05-31 14:02:11.114 INFO  c.e.commerce.orders.OrderController : received checkout request, items=0
+2026-05-31 14:02:11.118 DEBUG c.e.commerce.orders.CheckoutService : entering price(cart)
+2026-05-31 14:02:11.121 ERROR c.e.commerce.orders.CheckoutService : failed to read first cart item
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at com.example.commerce.orders.CheckoutService.price(CheckoutService.java:24)
+	at com.example.commerce.orders.OrderController.checkout(OrderController.java:31)
+2026-05-31 14:02:11.130 ERROR c.e.commerce.orders.OrderController : checkout failed with 500
