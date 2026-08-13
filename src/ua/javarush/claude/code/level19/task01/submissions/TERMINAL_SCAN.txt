@@ -1,0 +1,20 @@
+--- GIT STATUS --SHORT ---
+ M submissions/TERMINAL_SCAN.txt
+--- PRODUCTION FILES ---
+src/main/java/com/acme/commerce/refunds/RefundResult.java
+src/main/java/com/acme/commerce/refunds/RefundPolicy.java
+src/main/java/com/acme/commerce/refunds/RefundRepository.java
+src/main/java/com/acme/commerce/refunds/RefundService.java
+src/main/java/com/acme/commerce/refunds/RefundController.java
+src/main/java/com/acme/commerce/refunds/RefundRequest.java
+--- TEST FILES ---
+src/test/java/com/acme/commerce/refunds/RefundControllerTest.java
+src/test/java/com/acme/commerce/refunds/RefundPolicyTest.java
+--- EXPECTED BEHAVIOR ---
+--- EXPECTED BEHAVIOR ---
+11:## Очікувана поведінка
+11:## Очікувана поведінка
+11:## Очікувана поведінка
+## Очікувана поведінка
+Очікується, що повторний запит з тим самим idempotency key не створює другий запис про повернення,
+а повертає результат першої операції.
