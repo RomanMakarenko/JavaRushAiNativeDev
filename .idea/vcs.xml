@@ -4,5 +4,9 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/ua/javarush/claude/code/level04/task05" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/ua/javarush/claude/code/level04/task07" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ua/javarush/claude/code/level16/task01/commerce-os" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ua/javarush/claude/code/level16/task05/commerce-os" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ua/javarush/claude/code/level16/task06/commerce-os" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ua/javarush/claude/code/level17/task01" vcs="Git" />
   </component>
 </project>

@@ -19,9 +19,9 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<?> createOrder(@RequestBody CreateOrderRequest request) {
-        // Порожній кошик: повертаємо 422 — не збігається зі схваленим планом (очікується 400).
+        // Порожній кошик: повертаємо 400 Bad Request (згідно зі схваленим планом).
         if (request.items() == null || request.items().isEmpty()) {
-            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body("Cart is empty");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Cart is empty");
         }
         Order order = orderService.place(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(order);
