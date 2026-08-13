@@ -16,4 +16,11 @@ class ShippingZonePolicyTest {
 
         assertThat(zone).contains("ZONE_EU");
     }
+
+    @Test
+    void returnsEmptyZoneForUnsupportedCountry() {
+        Optional<String> zone = policy.resolveZone("GB");
+
+        assertThat(zone).isEmpty();
+    }
 }
