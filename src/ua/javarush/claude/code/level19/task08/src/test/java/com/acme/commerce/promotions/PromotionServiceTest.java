@@ -18,6 +18,14 @@ class PromotionServiceTest {
         assertEquals(1000L, cart.getDiscountCents());
     }
 
-    // TODO: додати регресійний тест на дублювання знижки
-    // (повторний applyPromotion з тим самим промокодом не повинен дублювати знижку).
+    @Test
+    void samePromoAppliedTwiceDoesNotDuplicateDiscount() {
+        Cart cart = new Cart();
+
+        service.applyPromotion(cart, "SUMMER10", 1000L);
+        service.applyPromotion(cart, "SUMMER10", 1000L);
+
+        // Ідемпотентність за кодом промо: повторне застосування не дублює знижку.
+        assertEquals(1000L, cart.getDiscountCents());
+    }
 }
