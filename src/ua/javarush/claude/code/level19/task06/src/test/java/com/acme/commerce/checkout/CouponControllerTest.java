@@ -33,4 +33,16 @@ class CouponControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.total").value(90));
     }
+
+    @Test
+    void rejectsNegativeOrderAmountWith400AndErrorBody() throws Exception {
+        when(couponService.applyCoupon("SAVE10", -100L))
+                .thenThrow(new IllegalArgumentException("orderAmount must not be negative"));
+
+        mockMvc.perform(post("/api/coupons/apply")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"code\":\"SAVE10\",\"orderAmount\":-100}"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error").value("INVALID_ORDER_AMOUNT"));
+    }
 }
