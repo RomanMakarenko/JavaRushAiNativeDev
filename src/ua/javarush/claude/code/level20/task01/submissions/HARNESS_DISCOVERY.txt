@@ -1,0 +1,20 @@
+=== Backend ===
+
+Format/Lint:
+./gradlew spotlessApply
+
+Build:
+./gradlew build
+
+Test:
+./gradlew test
+
+=== Frontend ===
+
+Lint/Typecheck:
+npm --prefix web run lint
+npm --prefix web run typecheck
+
+=== Sources ===
+build.gradle.kts — backend Gradle Kotlin DSL / Spotless configuration
+web/package.json — frontend npm scripts (Vite, ESLint, TypeScript, Vitest)

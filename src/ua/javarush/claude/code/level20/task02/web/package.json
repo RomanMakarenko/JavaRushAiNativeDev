@@ -1,0 +1,19 @@
+{
+  "name": "orders-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Панель адміністрування для orders-service",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "eslint": "^9.9.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.0",
+    "vitest": "^2.0.5"
+  }
+}
