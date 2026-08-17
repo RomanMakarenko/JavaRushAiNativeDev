@@ -44,5 +44,15 @@ class OrderServiceCharacterizationTest {
         assertEquals("OK", result.getReason());
     }
 
-    // TODO: додайте сюди один граничний characterization test для stock = 0.
+    @Test
+    void paidOrderWithZeroStockIsBackordered() {
+        OrderService service = new OrderService(new StubInventory(0));
+        Order order = new Order("SKU-1", true);
+
+        OrderResult result = service.finalizeOrder(order);
+
+        // Перевіряємо лише спостережуваний результат методу, а не виклики reserveStock.
+        assertEquals(OrderStatus.BACKORDERED, result.getStatus());
+        assertEquals("OUT_OF_STOCK", result.getReason());
+    }
 }
