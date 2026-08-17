@@ -20,3 +20,7 @@ frontend у каталозі `web/` (Node.js, npm). Backend відповідає
 Backend збирається через Gradle Wrapper (`./gradlew`), форматування
 забезпечує плагін Spotless. Frontend використовує npm scripts із `web/package.json`.
 Конкретні команди дивись у `build.gradle.kts` і `web/package.json`.
+
+## Local verification harness
+
+Для локальної перевірки використовуйте лише наявні команди проєкту — швидкі сенсори: `./gradlew spotlessCheck` (format) та `npm run lint`; повні сенсори: `./gradlew build` + `./gradlew test` та `npm run build` + `npm run test` — і завжди покладайтеся на наявні scripts і patterns проєкту з поточним toolchain (Gradle Wrapper, npm), не замінюючи їх.
