@@ -17,20 +17,7 @@ public class OrderService {
      * Обчислює підсумок замовлення з урахуванням знижки. Перед розрахунком перевіряє позиції.
      */
     public long total(List<OrderItem> items) {
-        validateItems(items);
-
-        long subtotal = 0;
-        for (OrderItem item : items) {
-            subtotal += (long) item.quantity() * item.unitPrice();
-        }
-        long discount = discountCalculator.discountFor(subtotal);
-        return subtotal - discount;
-    }
-
-    /**
-     * Перевіряє список позицій: не порожній, без null-елементів, додатна кількість і невід'ємна ціна.
-     */
-    private void validateItems(List<OrderItem> items) {
+        // Inline-блок валідації: кандидат на винесення в private helper
         if (items == null || items.isEmpty()) {
             throw new IllegalArgumentException("order must contain at least one item");
         }
@@ -45,5 +32,12 @@ public class OrderService {
                 throw new IllegalArgumentException("unit price must not be negative");
             }
         }
+
+        long subtotal = 0;
+        for (OrderItem item : items) {
+            subtotal += (long) item.quantity() * item.unitPrice();
+        }
+        long discount = discountCalculator.discountFor(subtotal);
+        return subtotal - discount;
     }
 }
