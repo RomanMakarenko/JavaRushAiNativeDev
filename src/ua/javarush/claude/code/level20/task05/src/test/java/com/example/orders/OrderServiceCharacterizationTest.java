@@ -32,5 +32,14 @@ class OrderServiceCharacterizationTest {
         }
     }
 
-    // TODO: додайте сюди один happy-path characterization test.
+    @Test
+    void confirmsPaidOrderWithAvailableStock() {
+        OrderService service = new OrderService(new StubInventory(10));
+        Order order = new Order("SKU-123", true);
+
+        OrderResult result = service.finalizeOrder(order);
+
+        assertEquals(OrderStatus.CONFIRMED, result.getStatus());
+        assertEquals("OK", result.getReason());
+    }
 }
