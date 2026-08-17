@@ -13,7 +13,7 @@ public class OrderService {
     private final Map<String, OrderResponse> storage = new HashMap<>();
 
     public OrderResponse placeOrder(OrderRequest request) {
-        validateOrderRequest(request);
+        processOrderChecks(request);
         OrderResponse response = new OrderResponse(
                 request.orderId(),
                 "PLACED",
@@ -38,7 +38,7 @@ public class OrderService {
     }
 
     // Внутрішня перевірка коректності замовлення перед збереженням.
-    private void validateOrderRequest(OrderRequest request) {
+    private void processOrderChecks(OrderRequest request) {
         if (request == null) {
             throw new IllegalArgumentException("Request must not be null");
         }
