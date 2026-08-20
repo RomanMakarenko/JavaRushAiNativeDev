@@ -1,0 +1,23 @@
+diff --git a/src/RefundService.java b/src/RefundService.java
+index 5d6e7f8..9a0b1c2 100644
+--- a/src/RefundService.java
++++ b/src/RefundService.java
+@@ -3,11 +3,18 @@ package com.rush.order;
+ // Сервіс розрахунку суми повернення за скасованим замовленням.
+ public class RefundService {
+
+-    public int calculateRefund(int paidAmount, int usedCredits) {
++    public int calculateRefund(int paidAmount, int usedCredits, boolean expedited) {
+         // Повернення дорівнює сплаченій сумі за вирахуванням витрачених бонусів.
+         int refund = paidAmount - usedCredits;
+         // Повернення не може бути від'ємним.
+         if (refund < 0) {
+             return 0;
+         }
++        // Для прискореного повернення утримуємо сервісний збір 5%.
++        if (expedited) {
++            refund = refund - (refund * 5 / 100);
++        }
+         return refund;
+     }
+ }

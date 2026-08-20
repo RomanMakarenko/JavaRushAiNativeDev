@@ -1,0 +1,9 @@
+claude -p "Read inputs/pr.diff only. Based exclusively on that diff, produce a concise PR review with exactly these Markdown sections:
+
+## Summary
+- ...
+
+## Risks
+- ...
+
+Do not perform or describe auto-merge, auto-commit, or deploy actions. Do not modify inputs/pr.diff. Output only the Markdown content for the file."
