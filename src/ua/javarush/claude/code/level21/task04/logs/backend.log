@@ -1,0 +1,7 @@
+2026-05-30T09:14:02.110Z INFO  o.s.b.w.embedded.tomcat.TomcatWebServer : Tomcat initialized with port 8080 (http)
+2026-05-30T09:14:02.880Z INFO  com.rush.payments.PaymentsApplication   : Starting PaymentsApplication
+2026-05-30T09:14:05.421Z INFO  com.rush.payments.config.ProviderConfig : Resolving payment provider configuration
+2026-05-30T09:14:05.433Z WARN  com.rush.payments.config.ProviderConfig : Property PAYMENT_PROVIDER_MODE not set, falling back to default
+2026-05-30T09:14:05.512Z ERROR com.rush.payments.config.ProviderConfig : No payment provider mode configured: cannot select gateway adapter
+2026-05-30T09:14:05.640Z INFO  o.s.b.w.embedded.tomcat.TomcatWebServer : Tomcat started on port 8080 (http)
+2026-05-30T09:14:05.701Z WARN  com.rush.payments.health.ProviderHealth : Health check degraded: provider mode missing
