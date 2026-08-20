@@ -1,0 +1,7 @@
+SOURCE: .github/workflows/pr-check.yml
+
+1:name: PR Check
+3:on:
+7:permissions:
+10:jobs:
+13:    timeout-minutes: 15
