@@ -1,0 +1,22 @@
+2026-05-29T11:02:13.4412Z [info] Run actions/checkout@v4
+2026-05-29T11:02:14.8810Z [info] Run actions/setup-java@v4 (temurin 21)
+2026-05-29T11:02:31.0023Z [info] > Task :compileJava
+2026-05-29T11:02:38.5571Z [info] > Task :compileTestJava
+2026-05-29T11:02:39.1190Z [info] > Task :test
+2026-05-29T11:02:46.7702Z [info] BUILD SUCCESSFUL in 33s
+2026-05-29T11:02:47.0031Z [info] Step "unit tests" completed with exit code 0
+2026-05-29T11:02:47.3340Z [info] Run step: integration tests
+2026-05-29T11:02:47.5512Z [info] > Task :integrationTest
+2026-05-29T11:03:01.2204Z [info] RefundInboxIntegrationTest > newerRefundsAppearBeforeOlder() FAILED
+2026-05-29T11:03:01.2210Z [info]     org.opentest4j.AssertionFailedError:
+2026-05-29T11:03:01.2214Z [info]     Expected refund order [REF-3001, REF-3000, REF-2999] but was [REF-2999, REF-3000, REF-3001]
+2026-05-29T11:03:01.2219Z [info]     expected: <[REF-3001, REF-3000, REF-2999]>
+2026-05-29T11:03:01.2224Z [info]      but was: <[REF-2999, REF-3000, REF-3001]>
+2026-05-29T11:03:01.2230Z [info]         at com.example.commerce.refunds.RefundInboxIntegrationTest.newerRefundsAppearBeforeOlder(RefundInboxIntegrationTest.java:41)
+2026-05-29T11:03:01.5540Z [info]     1 test completed, 1 failed
+2026-05-29T11:03:01.9981Z [info] > Task :integrationTest FAILED
+2026-05-29T11:03:02.1102Z [error] Execution failed for task ':integrationTest'.
+2026-05-29T11:03:02.1108Z [error] > There were failing tests. See the report at: build/reports/tests/integrationTest/index.html
+2026-05-29T11:03:02.4410Z [error] BUILD FAILED in 47s
+2026-05-29T11:03:02.6650Z [error] Step "integration tests" completed with exit code 1
+2026-05-29T11:03:02.8890Z [error] Process completed with exit code 1.

@@ -1,0 +1,43 @@
+=== FAILED STEP ===
+7:2026-05-29T11:02:47.0031Z [info] Step "unit tests" completed with exit code 0
+8:2026-05-29T11:02:47.3340Z [info] Run step: integration tests
+10:2026-05-29T11:03:01.2204Z [info] RefundInboxIntegrationTest > newerRefundsAppearBeforeOlder() FAILED
+11:2026-05-29T11:03:01.2210Z [info]     org.opentest4j.AssertionFailedError:
+16:2026-05-29T11:03:01.5540Z [info]     1 test completed, 1 failed
+17:2026-05-29T11:03:01.9981Z [info] > Task :integrationTest FAILED
+18:2026-05-29T11:03:02.1102Z [error] Execution failed for task ':integrationTest'.
+19:2026-05-29T11:03:02.1108Z [error] > There were failing tests. See the report at: build/reports/tests/integrationTest/index.html
+20:2026-05-29T11:03:02.4410Z [error] BUILD FAILED in 47s
+21:2026-05-29T11:03:02.6650Z [error] Step "integration tests" completed with exit code 1
+22:2026-05-29T11:03:02.8890Z [error] Process completed with exit code 1.
+
+=== ERROR / ASSERTION MESSAGE ===
+10:2026-05-29T11:03:01.2204Z [info] RefundInboxIntegrationTest > newerRefundsAppearBeforeOlder() FAILED
+11:2026-05-29T11:03:01.2210Z [info]     org.opentest4j.AssertionFailedError:
+12:2026-05-29T11:03:01.2214Z [info]     Expected refund order [REF-3001, REF-3000, REF-2999] but was [REF-2999, REF-3000, REF-3001]
+13:2026-05-29T11:03:01.2219Z [info]     expected: <[REF-3001, REF-3000, REF-2999]>
+16:2026-05-29T11:03:01.5540Z [info]     1 test completed, 1 failed
+17:2026-05-29T11:03:01.9981Z [info] > Task :integrationTest FAILED
+18:2026-05-29T11:03:02.1102Z [error] Execution failed for task ':integrationTest'.
+19:2026-05-29T11:03:02.1108Z [error] > There were failing tests. See the report at: build/reports/tests/integrationTest/index.html
+20:2026-05-29T11:03:02.4410Z [error] BUILD FAILED in 47s
+21:2026-05-29T11:03:02.6650Z [error] Step "integration tests" completed with exit code 1
+22:2026-05-29T11:03:02.8890Z [error] Process completed with exit code 1.
+
+=== CONTEXT AROUND FAILURES ===
+7-2026-05-29T11:02:47.0031Z [info] Step "unit tests" completed with exit code 0
+8-2026-05-29T11:02:47.3340Z [info] Run step: integration tests
+9-2026-05-29T11:02:47.5512Z [info] > Task :integrationTest
+10:2026-05-29T11:03:01.2204Z [info] RefundInboxIntegrationTest > newerRefundsAppearBeforeOlder() FAILED
+11:2026-05-29T11:03:01.2210Z [info]     org.opentest4j.AssertionFailedError:
+12-2026-05-29T11:03:01.2214Z [info]     Expected refund order [REF-3001, REF-3000, REF-2999] but was [REF-2999, REF-3000, REF-3001]
+13-2026-05-29T11:03:01.2219Z [info]     expected: <[REF-3001, REF-3000, REF-2999]>
+14-2026-05-29T11:03:01.2224Z [info]      but was: <[REF-2999, REF-3000, REF-3001]>
+15-2026-05-29T11:03:01.2230Z [info]         at com.example.commerce.refunds.RefundInboxIntegrationTest.newerRefundsAppearBeforeOlder(RefundInboxIntegrationTest.java:41)
+16:2026-05-29T11:03:01.5540Z [info]     1 test completed, 1 failed
+17:2026-05-29T11:03:01.9981Z [info] > Task :integrationTest FAILED
+18:2026-05-29T11:03:02.1102Z [error] Execution failed for task ':integrationTest'.
+19:2026-05-29T11:03:02.1108Z [error] > There were failing tests. See the report at: build/reports/tests/integrationTest/index.html
+20:2026-05-29T11:03:02.4410Z [error] BUILD FAILED in 47s
+21:2026-05-29T11:03:02.6650Z [error] Step "integration tests" completed with exit code 1
+22:2026-05-29T11:03:02.8890Z [error] Process completed with exit code 1.
