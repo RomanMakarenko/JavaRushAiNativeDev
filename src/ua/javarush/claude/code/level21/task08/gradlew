@@ -1,0 +1,4 @@
+#!/bin/sh
+# Gradle wrapper — запускає зафіксовану версію Gradle без глобального встановлення.
+# У навчальній робочій папці це спрощена заглушка реального gradlew із дистрибутива.
+exec "$(dirname "$0")/gradle/wrapper/gradle-launcher" "$@"
