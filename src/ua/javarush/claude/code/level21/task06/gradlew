@@ -1,0 +1,4 @@
+#!/bin/sh
+# Gradle wrapper-скрипт (спрощена заглушка для навчального репозиторію).
+# Делегує запуск до gradle-wrapper.jar з каталогу gradle/wrapper.
+exec gradle "$@"
