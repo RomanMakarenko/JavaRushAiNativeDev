@@ -17,8 +17,7 @@ class RefundControllerTest {
 
     @Test
     void createRefundReturnsRequestedStatus() throws Exception {
-        // Шлях повторює помилковий route з контролера і розходиться з контрактом.
-        mockMvc.perform(post("/api/order/{id}/refund", "ORD-1001"))
+        mockMvc.perform(post("/api/orders/{id}/refund", "ORD-1001"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.orderId").value("ORD-1001"))
                 .andExpect(jsonPath("$.status").value("REFUND_REQUESTED"));

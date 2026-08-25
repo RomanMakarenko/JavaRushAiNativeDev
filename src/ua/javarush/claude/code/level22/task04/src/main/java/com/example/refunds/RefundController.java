@@ -10,9 +10,7 @@ import java.util.Map;
 @RestController
 public class RefundController {
 
-    // УВАГА: шлях містить помилку (/api/order замість /api/orders)
-    // і розходиться з контрактом із docs/api/refunds.md.
-    @PostMapping("/api/order/{id}/refund")
+    @PostMapping("/api/orders/{id}/refund")
     public ResponseEntity<Map<String, String>> createRefund(@PathVariable String id) {
         Map<String, String> body = Map.of(
                 "orderId", id,
