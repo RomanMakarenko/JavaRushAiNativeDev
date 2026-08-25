@@ -1,0 +1,10 @@
+{
+  "name": "refund-service-docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Допоміжні frontend-скрипти та docs-as-code перевірки сервісу повернень",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "vite build"
+  }
+}
