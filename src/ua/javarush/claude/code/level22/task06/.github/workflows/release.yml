@@ -1,20 +1,40 @@
 name: release
 
-# Початковий стан (небезпечний):
-# на кожен push у main workflow одразу збирає notes, ставить tag і публікує release.
-# Немає межі між release artifact і release action.
+# Межа artifact vs action:
+# - draft (artifact): збирає notes на кожен push у main, нічого не тегає і не публікує;
+# - publish (action): тег і release створюються лише вручну через workflow_dispatch.
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
-  release:
+  draft:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: Build draft release notes
         run: bash scripts/draft-release-notes.sh > DRAFT_NOTES.md
+
+      - name: Upload draft notes
+        uses: actions/upload-artifact@v4
+        with:
+          name: draft-notes
+          path: DRAFT_NOTES.md
+
+  publish:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    needs: draft
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download draft notes
+        uses: actions/download-artifact@v4
+        with:
+          name: draft-notes
+          path: .
 
       - name: Create tag
         run: |
