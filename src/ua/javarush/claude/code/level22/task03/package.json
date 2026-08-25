@@ -5,6 +5,7 @@
   "description": "Допоміжні frontend-скрипти та docs-as-code перевірки сервісу повернень",
   "scripts": {
     "lint": "eslint .",
-    "build": "vite build"
+    "build": "vite build",
+    "docs:check": "scripts/verify-readme.sh"
   }
 }
