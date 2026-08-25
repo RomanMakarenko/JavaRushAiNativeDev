@@ -1,0 +1,34 @@
+name: pr-checks
+# Усі перевірки Commerce OS змішані в одному блокувальному job.
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Backend tests
+        run: ./gradlew test
+
+      - name: Frontend lint
+        run: npm run lint
+
+      - name: Frontend typecheck
+        run: npm run typecheck
+
+      - name: AI review
+        run: bash scripts/run-ai-review.sh
