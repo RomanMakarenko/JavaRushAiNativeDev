@@ -1,5 +1,5 @@
 name: pr-checks
-# Quality gate: deterministic checks (blocking) + AI review (advisory).
+# Deterministic checks (blocking) та AI review (advisory) для Commerce OS.
 on:
   pull_request:
     branches: [main]
@@ -10,17 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: "21"
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
       - name: Backend tests
         run: ./gradlew test
 
@@ -30,9 +19,11 @@ jobs:
       - name: Frontend typecheck
         run: npm run typecheck
 
+      - name: Secret scan
+        run: npm run secret:scan
+
   ai-review:
     runs-on: ubuntu-latest
-    # Advisory layer: ніколи не блокує merge.
     continue-on-error: true
     steps:
       - uses: actions/checkout@v4
