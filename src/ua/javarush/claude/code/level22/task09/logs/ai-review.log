@@ -1,0 +1,5 @@
+2026-05-31T09:14:10 INFO  advisory AI review started for PR #482
+2026-05-31T09:14:11 INFO  loading diff: 3 files changed
+2026-05-31T09:14:55 WARN  network slow while fetching model response
+2026-05-31T09:15:40 ERROR advisory AI review timeout while waiting for completion
+2026-05-31T09:15:41 INFO  advisory review is non-blocking, pipeline continues

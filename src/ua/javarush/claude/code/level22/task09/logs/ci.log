@@ -1,0 +1,7 @@
+2026-05-31T09:12:01 INFO  pipeline started for commit a1b2c3d
+2026-05-31T09:12:04 INFO  step build: compiling sources
+2026-05-31T09:12:48 INFO  step build: OK
+2026-05-31T09:13:02 INFO  step test: running unit suite
+2026-05-31T09:18:02 ERROR step test: timeout after 300s waiting for integration db
+2026-05-31T09:18:03 ERROR step test: test failed in module billing-refund
+2026-05-31T09:18:05 INFO  pipeline finished with status FAILED

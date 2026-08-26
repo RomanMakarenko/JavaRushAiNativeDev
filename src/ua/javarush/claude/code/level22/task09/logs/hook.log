@@ -1,0 +1,5 @@
+2026-05-31T09:16:20 INFO  pre-push hook started
+2026-05-31T09:16:21 INFO  running secret scan
+2026-05-31T09:16:22 ERROR hook blocked: attempt to write protected path .github/workflows
+2026-05-31T09:16:22 INFO  blocked action: push rejected by guard
+2026-05-31T09:16:23 INFO  pre-push hook finished with status BLOCKED
