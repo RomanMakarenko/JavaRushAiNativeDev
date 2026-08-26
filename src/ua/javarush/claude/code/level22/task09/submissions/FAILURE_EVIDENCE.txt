@@ -1,1 +1,7 @@
-`
+[ci.log] 5:2026-05-31T09:18:02 ERROR step test: timeout after 300s waiting for integration db
+[ci.log] 6:2026-05-31T09:18:03 ERROR step test: test failed in module billing-refund
+[ci.log] 7:2026-05-31T09:18:05 INFO  pipeline finished with status FAILED
+[ai-review.log] 4:2026-05-31T09:15:40 ERROR advisory AI review timeout while waiting for completion
+[hook.log] 3:2026-05-31T09:16:22 ERROR hook blocked: attempt to write protected path .github/workflows
+[hook.log] 4:2026-05-31T09:16:22 INFO  blocked action: push rejected by guard
+[hook.log] 5:2026-05-31T09:16:23 INFO  pre-push hook finished with status BLOCKED
