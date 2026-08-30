@@ -1,0 +1,7 @@
+# Ізольоване середовище для міграційних експериментів.
+# TODO: додати сервіс db-test з ефемерним сховищем (tmpfs) для rehearsal schema migration.
+services:
+  app-test:
+    build: .
+    environment:
+      SPRING_PROFILES_ACTIVE: test
