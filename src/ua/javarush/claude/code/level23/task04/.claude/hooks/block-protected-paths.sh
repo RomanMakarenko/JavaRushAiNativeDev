@@ -1,16 +1,12 @@
-#!/usr/bin/env bash
-# Заготовка хука для блокування protected paths.
-# Увага: наразі перевіряє лише payments/** і НЕ підключена до hooks.json.
-set -euo pipefail
+#!/bin/sh
 
-TARGET_PATH="${1:-}"
+file_path=$(jq -r '.tool_input.file_path // .tool_input.path // empty')
 
-# protected path: каталог payments
-case "$TARGET_PATH" in
-  payments/*|*/payments/*)
-    echo "BLOCKED: $TARGET_PATH належить до payments/** (protected)" >&2
-    exit 1
+case "$file_path" in
+  payments/*|*/payments/*|.env*|*/.env*)
+    exit 2
+    ;;
+  *)
+    exit 0
     ;;
 esac
-
-exit 0

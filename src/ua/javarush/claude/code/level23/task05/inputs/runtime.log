@@ -1,0 +1,8 @@
+2026-05-29T11:02:14Z INFO  refund-worker started, pool=4
+2026-05-29T11:02:15Z INFO  connecting to db at postgres://refund:refund@db.internal.refund-svc.local:5432/refunds
+2026-05-29T11:03:01Z INFO  processing refund ORD-90217 amount=4990 currency=RUB
+2026-05-29T11:03:01Z DEBUG calling payment gateway with Authorization: Bearer sk_live_EXAMPLE_NOT_REAL
+2026-05-29T11:03:02Z WARN  gateway returned 409 conflict for ORD-90217
+2026-05-29T11:03:02Z ERROR refund stuck in processing, retry scheduled
+2026-05-29T11:03:05Z INFO  retry 1 for ORD-90217
+2026-05-29T11:03:06Z WARN  gateway returned 409 conflict for ORD-90217

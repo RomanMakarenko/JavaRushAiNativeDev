@@ -6,14 +6,18 @@
       "Read",
       "Grep",
       "Glob",
-      "Edit",
-      "Write",
       "Bash(./gradlew test*)"
     ],
     "ask": [
+      "Edit",
+      "Write",
       "Bash(git commit*)"
     ],
     "deny": [
+      "Edit(./payments/**)",
+      "Edit(./migrations/**)",
+      "Edit(./.env*)",
+      "Bash(git push --force*)",
       "Bash(rm -rf*)"
     ]
   }
