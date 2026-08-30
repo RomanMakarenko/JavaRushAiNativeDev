@@ -1,0 +1,51 @@
+#!/bin/sh
+set -eu
+
+# Переходимо до каталогу, де лежить цей файл, тому запуск можливий із будь-якого місця.
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+cd "$script_dir"
+
+# Скрипт читає inputs лише для аналізу й перезаписує тільки звіт у submissions.
+out="submissions/SENSITIVE_FINDINGS.txt"
+mkdir -p submissions
+
+{
+    printf '%s\n' 'Знахідки чутливих даних'
+    printf '\n'
+} > "$out"
+
+# Для кожного збігу додаємо файл, 1-based номер рядка та коротку причину.
+for file in inputs/*; do
+    [ -f "$file" ] || continue
+    awk -v out="$out" '
+        function finding(reason) {
+            printf "- Файл: %s, рядок: %d — %s.\n", FILENAME, FNR, reason >> out
+        }
+        {
+            if ($0 ~ /[[:alnum:]._%+-]+@[[:alnum:].-]+\.[[:alpha:]][[:alpha:]]+/)
+                finding("адреса електронної пошти клієнта (PII)")
+            if ($0 ~ /\+[0-9][0-9 ()-]{6,}/)
+                finding("номер телефону клієнта (PII)")
+            if ($0 ~ /https?:\/\/[^[:space:]]*(internal|\.local)/)
+                finding("внутрішній URL; розкриває інфраструктуру сервісу")
+            if (index($0, "postgres://") > 0)
+                finding("рядок підключення до БД містить облікові дані та внутрішній хост")
+            if ($0 ~ /Authorization:[[:space:]]*Bearer[[:space:]]+/)
+                finding("Bearer-токен авторизації у журналі")
+            if ($0 ~ /ORD-[0-9]+/)
+                finding("ідентифікатор замовлення, пов’язаний із фінансовою операцією")
+            if ($0 ~ /RFND-[0-9]+/)
+                finding("ідентифікатор внутрішнього тікета підтримки")
+            if ($0 ~ /amount=[0-9]+|[0-9][0-9]*[[:space:]]+RUB/)
+                finding("сума та валюта повернення (фінансові дані)")
+            if ($0 ~ /processing/)
+                finding("внутрішній статус операції повернення")
+            if ($0 ~ /409[[:space:]]+conflict|retry scheduled|retry [0-9]+|ручн(о|у)[[:space:]]+оформ/)
+                finding("внутрішні деталі обробки та повторної спроби повернення")
+        }
+    ' "$file"
+done
+
+# Перевірка результату без читання або зміни файлів у inputs.
+test -s "$out"
+printf 'Створено: %s\n' "$out"
