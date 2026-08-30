@@ -9,13 +9,15 @@ service: refund-service
 
 actions:
   productionDeploy:
-    # розгортання в production без підтвердження людиною
-    approval: auto
+    # розгортання в production лише з підтвердженням людиною
+    approval: human-approved-only
   secretRotation:
-    approval: auto
+    approval: human-approved-only
 
 requiredChecks:
-  - unit-tests
+  - CI
+  - staging smoke
 
 notDelegated:
   - db-migration
+  - force-push
