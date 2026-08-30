@@ -3,6 +3,22 @@
 
 id: refund-sort-fix
 title: Виправити сортування черги повернень
+riskLevel: review-required
+
+capabilityEnvelope:
+  allowedTools:
+    - read
+    - edit
+    - run-tests
+  requiredChecks:
+    - run unit tests for the refund queue
+    - verify the oldest requests appear first
+  forbiddenActions:
+    - payments/**
+    - migrations/**
+    - .env*
+  rollbackExpectation: >
+    Revert the change if tests fail or the queue ordering behaves unexpectedly.
 
 goal: >
   Черга повернень у support-модулі має показувати найстаріші заявки
