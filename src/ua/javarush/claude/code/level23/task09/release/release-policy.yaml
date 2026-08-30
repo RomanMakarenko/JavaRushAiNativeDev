@@ -1,0 +1,21 @@
+# Політика релізу для refund-service
+# Версія релізу: v2.31.0
+#
+# УВАГА: policy поки не відображає deployment boundary.
+# Розгортання в production дозволено занадто вільно, список notDelegated неповний.
+
+version: v2.31.0
+service: refund-service
+
+actions:
+  productionDeploy:
+    # розгортання в production без підтвердження людиною
+    approval: auto
+  secretRotation:
+    approval: auto
+
+requiredChecks:
+  - unit-tests
+
+notDelegated:
+  - db-migration
