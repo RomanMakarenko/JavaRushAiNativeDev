@@ -1,0 +1,16 @@
+# Стартовий артефакт задачі Workflow Kit.
+# Зараз є goal і scope, але немає risk label і capability envelope.
+
+id: refund-sort-fix
+title: Виправити сортування черги повернень
+
+goal: >
+  Черга повернень у support-модулі має показувати найстаріші заявки
+  згори, щоб не порушувати SLA за старими зверненнями.
+
+scope:
+  include:
+    - support/RefundQueueService.java
+  exclude:
+    - payments/**
+    - migrations/**
