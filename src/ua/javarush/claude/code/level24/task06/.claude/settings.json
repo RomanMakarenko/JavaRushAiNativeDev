@@ -7,13 +7,10 @@
       "Read(**)"
     ],
     "ask": [
-      "Bash(git push*)",
-      "Edit(.env*)",
-      "Edit(db/migration/**)"
+      "Bash(git push*)"
     ],
     "deny": [
-      "Bash(rm -rf*)",
-      "Bash(git push --force*)"
+      "Bash(rm -rf*)"
     ]
   }
 }
