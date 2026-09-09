@@ -1,0 +1,13 @@
+=== git status --short ===
+ M README.md
+ M src/main/java/com/example/commerce/auth/RefundAccessGuard.java
+ M src/main/java/com/example/commerce/refunds/RefundPolicyService.java
+?? db/migration/V104__refund_policy.sql
+
+=== git diff --name-only ===
+README.md
+src/main/java/com/example/commerce/auth/RefundAccessGuard.java
+src/main/java/com/example/commerce/refunds/RefundPolicyService.java
+
+=== risk signals ===
+src/main/java/com/example/commerce/auth/RefundAccessGuard.java

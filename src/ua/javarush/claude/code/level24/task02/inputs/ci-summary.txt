@@ -1,0 +1,6 @@
+CI run #2451 (branch: feature/REFUND-318)
+- build: SUCCESS
+- unit tests: 142 passed, 0 failed
+- integration tests: 28 passed, 0 failed
+- migration dry-run: SUCCESS (V104 застосувалася на staging-копії)
+- coverage: 81% (поріг 80%)

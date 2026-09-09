@@ -9,3 +9,7 @@
 ```
 
 Перед production-релізом будь-який PR проходить через production decision gate команди.
+
+## Аудит повернень
+
+Дії за refund-політикою пишуться в `refund_policy_audit` (міграція V104).
