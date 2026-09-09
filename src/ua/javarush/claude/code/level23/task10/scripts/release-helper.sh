@@ -20,8 +20,11 @@ run_deploy() {
 
 build_artifact
 
-# ПРОБЛЕМА: deploy виконується для будь-якого середовища,
-# включно з production — без межі ручного погодження
+if [[ "${TARGET_ENV}" == "production" ]]; then
+  echo "release-helper: prepare-only — production deploy requires manual approval" >&2
+  exit 1
+fi
+
 run_deploy
 
 echo "release-helper: готово"

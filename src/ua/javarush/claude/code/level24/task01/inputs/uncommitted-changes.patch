@@ -1,0 +1,36 @@
+diff --git a/README.md b/README.md
+index cc5cdd2..65a475b 100644
+--- a/README.md
++++ b/README.md
+@@ -9,3 +9,7 @@
+ ```
+ 
+ Перед production-релізом будь-який PR проходить через production decision gate команди.
++
++## Аудит повернень
++
++Дії за refund-політикою пишуться в `refund_policy_audit` (міграція V104).
+diff --git a/src/main/java/com/example/commerce/auth/RefundAccessGuard.java b/src/main/java/com/example/commerce/auth/RefundAccessGuard.java
+index 3cacc7a..d75bf60 100644
+--- a/src/main/java/com/example/commerce/auth/RefundAccessGuard.java
++++ b/src/main/java/com/example/commerce/auth/RefundAccessGuard.java
+@@ -6,6 +6,7 @@ public class RefundAccessGuard {
+     // Роль, якій дозволено підтверджувати ручні повернення
+     private static final String REFUND_APPROVER_ROLE = "refund-approver";
+ 
++    // посилення: approver роль перевіряється перед записом в аудит refund-політики
+     public boolean canApproveRefund(String role) {
+         return REFUND_APPROVER_ROLE.equals(role);
+     }
+diff --git a/src/main/java/com/example/commerce/refunds/RefundPolicyService.java b/src/main/java/com/example/commerce/refunds/RefundPolicyService.java
+index d89fbeb..407d344 100644
+--- a/src/main/java/com/example/commerce/refunds/RefundPolicyService.java
++++ b/src/main/java/com/example/commerce/refunds/RefundPolicyService.java
+@@ -8,6 +8,7 @@ public class RefundPolicyService {
+     // Максимальна частка замовлення, доступна до повернення без ручного approval
+     private static final BigDecimal AUTO_REFUND_LIMIT = new BigDecimal("0.80");
+ 
++    // refund-policy audit: суми аудуються в refund_policy_audit (міграція V104)
+     public BigDecimal maxAutoRefund(BigDecimal orderTotal) {
+         return orderTotal.multiply(AUTO_REFUND_LIMIT);
+     }
