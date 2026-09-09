@@ -1,0 +1,4 @@
+2026-05-30T10:15:02Z INFO order=ORDER-482 lookup by customer ann@example.com
+2026-05-30T10:15:02Z DEBUG outbound call Authorization: Bearer eyJabc123.def456.ghi789
+2026-05-30T10:15:03Z INFO order=ORDER-991 status=200 returned 1 active order
+2026-05-30T10:15:03Z WARN order=ORDER-991 contact bob.smith@example.org status=404
