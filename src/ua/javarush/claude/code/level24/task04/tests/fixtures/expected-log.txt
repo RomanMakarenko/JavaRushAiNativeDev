@@ -1,4 +1,4 @@
-2026-05-30T10:15:02Z INFO order=ORDER-[REDACTED] lookup by customer ann@example.com
-2026-05-30T10:15:02Z DEBUG outbound call Authorization: Bearer eyJabc123.def456.ghi789
+2026-05-30T10:15:02Z INFO order=ORDER-[REDACTED] lookup by customer [REDACTED_EMAIL]
+2026-05-30T10:15:02Z DEBUG outbound call Authorization: Bearer [REDACTED_TOKEN]
 2026-05-30T10:15:03Z INFO order=ORDER-[REDACTED] status=200 returned 1 active order
-2026-05-30T10:15:03Z WARN order=ORDER-[REDACTED] contact bob.smith@example.org status=404
+2026-05-30T10:15:03Z WARN order=ORDER-[REDACTED] contact [REDACTED_EMAIL] status=404
