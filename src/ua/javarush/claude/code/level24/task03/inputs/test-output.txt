@@ -1,0 +1,8 @@
+> Task :test
+
+OrderQueryServiceTest > returnsOnlyActiveOrders_forCustomerEmail() PASSED
+OrderQueryServiceTest > existingSearchStillWorks() PASSED
+
+BUILD SUCCESSFUL in 6s
+4 actionable tasks: 2 executed, 2 up-to-date
+Tests: 2 passed, 0 failed
