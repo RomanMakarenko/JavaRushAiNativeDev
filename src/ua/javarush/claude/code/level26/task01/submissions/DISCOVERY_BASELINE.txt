@@ -1,0 +1,41 @@
+Git state
+=========
+Branch: legacy/mrr-discovery
+git status --short:
+ M inputs/incident.md
+
+Directories (depth <= 2)
+=========================
+./db
+./db/migration
+./inputs
+./scripts
+./src
+./src/main
+./src/test
+./submissions
+
+Recent commits
+==============
+0b81ee5 fix: clamp negative proration in MrrCalculator
+863e19f chore: add paused_at column migration (V2)
+57c6ae0 feat: include paused subscriptions in active set
+c275a2b refactor: move MRR normalization out of controller
+0ac8de7 feat: initial MrrSnapshotJob daily snapshot
+
+Tests
+=====
+src/test/java/com/acme/cashflow/mrr/MrrSnapshotIT.java
+
+Gradle tasks
+============
+bootTestRun - Runs this project as a Spring Boot application using the test runtime classpath.
+build - Assembles and tests this project.
+buildDependents - Assembles and tests this project and all projects that depend on it.
+buildNeeded - Assembles and tests this project and all projects it depends on.
+compileTestJava - Compiles test Java source.
+jacocoTestCoverageVerification - Verifies code coverage metrics based on specified rules for the test task.
+jacocoTestReport - Generates code coverage report for the test task.
+resolveTestMainClassName - Resolves the name of the application's test main class.
+test - Runs the test suite.
+testClasses - Assembles test classes.
