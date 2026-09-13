@@ -1,0 +1,40 @@
+// Legacy build CashFlow Dashboard
+// JaCoCo підключено для цього завдання (discovery coverage).
+plugins {
+    id 'java'
+    id 'jacoco'
+}
+
+group = 'com.cashflow'
+version = '1.4.2'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+sourceSets {
+    // у проєкті є окремий legacy-каталог вихідних файлів поруч із основним src
+    main {
+        java {
+            srcDirs = ['src/main/java', 'legacy']
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        html.required = true
+        xml.required = true
+    }
+}
