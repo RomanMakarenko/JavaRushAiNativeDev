@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: cashflow-mrr
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cashflow
+    username: cashflow
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+cashflow:
+  mrr:
+    snapshot-cron: "0 0 2 * * *"
+    include-paused-in-mrr: true
