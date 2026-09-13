@@ -1,0 +1,29 @@
+// Legacy build CashFlow Dashboard
+// Java 8 / Gradle 7.x baseline. Coverage report ще НЕ збирається.
+plugins {
+    id 'java'
+}
+
+group = 'com.cashflow'
+version = '1.4.2'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+sourceSets {
+    // у проєкті окремий legacy-каталог вихідних файлів поруч з основним src
+    main {
+        java {
+            srcDirs = ['src/main/java', 'legacy']
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+    testImplementation 'junit:junit:4.13.2'
+}
