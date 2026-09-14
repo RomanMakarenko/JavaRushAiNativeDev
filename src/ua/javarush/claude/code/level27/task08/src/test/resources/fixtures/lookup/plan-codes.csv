@@ -1,0 +1,5 @@
+# Зафіксовані входи для parity-перевірки single-plan lookup.
+# Один код плану на рядок. Кожен проганяється через legacy та v2.
+basic-month
+pro-month
+pro-year

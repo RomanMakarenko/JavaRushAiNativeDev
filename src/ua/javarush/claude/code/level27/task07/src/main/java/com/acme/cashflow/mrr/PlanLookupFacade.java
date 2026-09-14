@@ -24,7 +24,9 @@ public class PlanLookupFacade {
     }
 
     public PlanInfo find(String code, boolean singlePlan) {
-        // Поки routing не завершено: усе йде legacy-шляхом.
+        if (flags.useV2ForSinglePlan() && singlePlan) {
+            return modern.find(code);
+        }
         return legacy.find(code);
     }
 }
