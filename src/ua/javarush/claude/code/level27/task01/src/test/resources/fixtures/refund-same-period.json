@@ -1,0 +1,16 @@
+{
+  "subscriptionId": "sub-1001",
+  "planId": "pro-monthly",
+  "monthlyAmount": 4900,
+  "period": "2024-05",
+  "events": [
+    { "type": "charge", "date": "2024-05-01", "amount": 4900 },
+    { "type": "refund", "date": "2024-05-20", "amount": 4900 }
+  ],
+  "expected": {
+    "mrr": {
+      "2024-05": 4900,
+      "2024-06": -4900
+    }
+  }
+}
