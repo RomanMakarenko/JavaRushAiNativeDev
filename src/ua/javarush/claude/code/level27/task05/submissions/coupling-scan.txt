@@ -1,0 +1,33 @@
+== direct dependencies ==
+src/main/java/com/acme/cashflow/mrr/AuditSink.java:4: * Побічний ефект запису audit-подій.
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:9: * Наразі знає забагато: напряму звертається до JDBC, пише audit
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:10: * і обробляє refund просто тут. Це й є кандидати на seam.
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:14:    private final JdbcTemplate jdbcTemplate;
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:15:    private final AuditSink auditSink;
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:17:    public MrrFacade(JdbcTemplate jdbcTemplate, AuditSink auditSink) {
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:18:        this.jdbcTemplate = jdbcTemplate;
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:19:        this.auditSink = auditSink;
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:24:     * Тут же заховано прямий SQL lookup та побічний audit-ефект.
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:28:        BigDecimal price = jdbcTemplate.queryForObject(
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:33:        // побічний ефект audit прямо всередині розрахунку — кандидат на seam
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:34:        auditSink.record("mrr.lookup", "planId=" + planId + " price=" + price);
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:40:     * Грубий розрахунок refund прямо всередині фасаду.
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:41:     * refund-логіка тісно змішана з розрахунком — high-risk зона.
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:43:    public BigDecimal refundForCancellation(String planId, int unusedDays) {
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:46:        BigDecimal refund = daily.multiply(new BigDecimal(unusedDays));
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:47:        auditSink.record("mrr.refund", "planId=" + planId + " refund=" + refund);
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java:48:        return refund;
+src/main/java/com/acme/cashflow/mrr/MrrCalculator.java:9: * Формула чистого розрахунку захована всередині методу поруч із JDBC та audit —
+src/main/java/com/acme/cashflow/mrr/MrrCalculator.java:14:    private final JdbcTemplate jdbcTemplate;
+src/main/java/com/acme/cashflow/mrr/MrrCalculator.java:15:    private final AuditSink auditSink;
+src/main/java/com/acme/cashflow/mrr/MrrCalculator.java:17:    public MrrCalculator(JdbcTemplate jdbcTemplate, AuditSink auditSink) {
+src/main/java/com/acme/cashflow/mrr/MrrCalculator.java:18:        this.jdbcTemplate = jdbcTemplate;
+src/main/java/com/acme/cashflow/mrr/MrrCalculator.java:19:        this.auditSink = auditSink;
+src/main/java/com/acme/cashflow/mrr/MrrCalculator.java:24:     * з урахуванням знижки. Чиста формула перемішана з data read та audit.
+src/main/java/com/acme/cashflow/mrr/MrrCalculator.java:28:        BigDecimal monthlyPrice = jdbcTemplate.queryForObject(
+src/main/java/com/acme/cashflow/mrr/MrrCalculator.java:43:        auditSink.record("mrr.total", "planId=" + planId + " total=" + total);
+
+== candidate files ==
+src/main/java/com/acme/cashflow/mrr/AuditSink.java
+src/main/java/com/acme/cashflow/mrr/MrrCalculator.java
+src/main/java/com/acme/cashflow/mrr/MrrFacade.java
