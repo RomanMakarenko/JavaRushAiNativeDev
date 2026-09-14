@@ -7,9 +7,9 @@ import java.util.List;
  * Legacy-калькулятор MRR (Monthly Recurring Revenue).
  *
  * Метод calculateMonthlyMrr зараз сам шукає тариф за кодом (через
- * виклик findByCode) і відразу використовує знайдений план у розрахунку.
+ * виклик findByCode) і тут же використовує знайдений план у розрахунку.
  * Пошук плану і сам розрахунок змішані в одному шарі — це перший кандидат
- * на невеликий behavior-preserving refactor (винести resolvePlan()).
+ * на маленький behavior-preserving refactor (винести resolvePlan()).
  */
 public class MrrCalculator {
 
@@ -21,25 +21,24 @@ public class MrrCalculator {
 
     /**
      * Обчислює місячний MRR для підписки на тариф planCode.
-     * Публічну сигнатуру і текст legacy-винятку чіпати не можна.
+     * Публічну сигнатуру та текст legacy-виключення чіпати не можна.
      */
     public BigDecimal calculateMonthlyMrr(String planCode, int seats) {
-        Plan found = resolvePlan(planCode);
+        // Пошук тарифу виконується вбудованим findByCode прямо тут.
+        Plan found = null;
+        for (Plan plan : plans) {
+            if (findByCode(plan, planCode)) {
+                found = plan;
+                break;
+            }
+        }
+        if (found == null) {
+            // Legacy-текст виключення: змінювати не можна, на нього зав'язані тести.
+            throw new IllegalArgumentException("Unknown plan code: " + planCode);
+        }
 
         // Розрахунок MRR: ціна за місце множиться на кількість місць.
         return found.getMonthlyPrice().multiply(BigDecimal.valueOf(seats));
-    }
-
-    /** Знаходить тариф за кодом або зберігає legacy-помилку. */
-    private Plan resolvePlan(String planCode) {
-        for (Plan plan : plans) {
-            if (findByCode(plan, planCode)) {
-                return plan;
-            }
-        }
-
-        // Legacy-текст винятку: змінювати не можна, на нього зав'язані тести.
-        throw new IllegalArgumentException("Unknown plan code: " + planCode);
     }
 
     /** Вбудована перевірка відповідності плану коду. */
