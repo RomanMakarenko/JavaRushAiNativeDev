@@ -8,7 +8,7 @@ import java.math.BigDecimal;
  * JDBC-реалізація читання ціни тарифного плану.
  * Весь SQL живе тут — це майбутній адаптер за seam PlanLookup.
  */
-public class JdbcPlanLookup {
+public class JdbcPlanLookup implements PlanLookup {
 
     private final JdbcTemplate jdbcTemplate;
 

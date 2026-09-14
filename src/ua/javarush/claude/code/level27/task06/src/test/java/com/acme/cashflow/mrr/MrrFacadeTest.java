@@ -17,11 +17,10 @@ class MrrFacadeTest {
      * Тестовий lookup без реального JDBC: перевизначає читання ціни
      * заздалегідь заданою таблицею планів.
      */
-    static class FakePlanLookup extends JdbcPlanLookup {
+    static class FakePlanLookup implements PlanLookup {
         private final Map<String, BigDecimal> prices;
 
         FakePlanLookup(Map<String, BigDecimal> prices) {
-            super(null); // JdbcTemplate не потрібен, monthlyPrice перевизначено
             this.prices = prices;
         }
 

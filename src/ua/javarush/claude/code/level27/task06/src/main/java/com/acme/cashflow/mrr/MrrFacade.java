@@ -9,10 +9,9 @@ import java.math.BigDecimal;
  */
 public class MrrFacade {
 
-    // пряма залежність від конкретного JDBC-класу — кандидат на seam
-    private final JdbcPlanLookup planLookup;
+    private final PlanLookup planLookup;
 
-    public MrrFacade(JdbcPlanLookup planLookup) {
+    public MrrFacade(PlanLookup planLookup) {
         this.planLookup = planLookup;
     }
 
