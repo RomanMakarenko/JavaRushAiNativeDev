@@ -1,0 +1,54 @@
+RISK INPUTS — CashFlow Dashboard (сирі докази для майбутньої risk map)
+Зібрано лише командами термінала. Це сирі факти, без оцінок і висновків.
+
+============================================================
+zone: mrr-engine
+============================================================
+
+Tests:
+  Пошук тестів:
+  $ find src/test -path '*mrr*' -name '*Test.java'
+  (порожньо) — автоматичних тестів для зони mrr-engine не знайдено.
+  Логіка pause-resume не покрита тестами.
+
+Configs:
+  $ grep -rln 'mrr' src/main/resources
+  src/main/resources/application.properties
+  Пов’язані ключі: mrr.engine.pause.freeze-amount, mrr.engine.currency
+
+Git churn:
+  $ git log --oneline -- src/main/java/com/cashflow/mrr
+  a1b2c3d hotfix: не обнуляти MRR при pause
+  d4e5f6a feat: додати resume() із серверним часом
+  9f8e7d6 init mrr engine
+  Частота змін: 3 коміти, останній — нещодавній hotfix навколо pause.
+
+Coverage:
+  $ ls build/reports/jacoco/test/html/com.cashflow.mrr 2>/dev/null
+  (немає такого каталогу) — coverage report для mrr-engine відсутній.
+
+============================================================
+zone: payments
+============================================================
+
+Tests:
+  $ find src/test -path '*payments*' -name '*Test.java'
+  src/test/java/com/cashflow/payments/PaymentGatewayTest.java
+  Покрито лише happy path charge(); verifyWebhook() і refund не покриті.
+
+Configs:
+  $ grep -rln 'payments' src/main/resources
+  src/main/resources/application.properties
+  src/main/resources/payments.properties
+  env-подібні ресурси: PAYMENTS_PROVIDER_KEY, PAYMENTS_WEBHOOK_SECRET
+
+Git churn:
+  $ git log --oneline -- src/main/java/com/cashflow/payments
+  b7c8d9e fix: повертати failed при порожньому provider key
+  e1f2a3b feat: verifyWebhook по shared secret
+  c3d4e5f init payment gateway
+  Частота змін: 3 коміти, зона активно змінюється.
+
+Coverage:
+  $ ls build/reports/jacoco/test/html/com.cashflow.payments 2>/dev/null
+  (немає такого каталогу) — окремого coverage report для payments немає.
