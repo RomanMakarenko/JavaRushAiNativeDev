@@ -1,0 +1,9 @@
+services:
+  db:
+    image: postgres:12  # Поточна база проєкту
+    environment:
+      POSTGRES_DB: cashflow
+      POSTGRES_USER: cashflow
+      POSTGRES_PASSWORD: cashflow
+    ports:
+      - "5432:5432"
