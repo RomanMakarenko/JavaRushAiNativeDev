@@ -1,0 +1,13 @@
+$ ./gradlew dependencies --configuration runtimeClasspath
+
+runtimeClasspath - Runtime classpath of source set 'main'.
++--- org.springframework.boot:spring-boot-starter-web -> 2.7.18
++--- org.springframework.boot:spring-boot-starter-data-jpa -> 2.7.18
+|    \--- org.hibernate:hibernate-core:5.6.15.Final
++--- org.springframework.boot:spring-boot-starter-security -> 2.7.18
+|    \--- org.springframework.security:spring-security-config:5.7.11
++--- org.hibernate:hibernate-core:5.6.15.Final
+\--- org.postgresql:postgresql:42.5.4
+
+Gradle Wrapper version: 7.6.4
+Java sourceCompatibility: 11

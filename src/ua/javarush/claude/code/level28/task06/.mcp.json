@@ -1,3 +1,7 @@
 {
-  "mcpServers": {}
+  "mcpServers": {
+    "spring-docs": {
+      "command": "tools/local-docs-mcp.sh"
+    }
+  }
 }
