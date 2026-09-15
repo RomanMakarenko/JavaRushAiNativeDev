@@ -1,0 +1,6 @@
+2:    id 'org.springframework.boot' version '2.7.18'
+3:distributionUrl=https\://services.gradle.org/distributions/gradle-7.6.4-bin.zip
+12:    sourceCompatibility = JavaVersion.VERSION_1_8
+13:    targetCompatibility = JavaVersion.VERSION_1_8
+src/main/java/com/acme/cashflow/subscriptions/Subscription.java
+Chosen mode: migration
