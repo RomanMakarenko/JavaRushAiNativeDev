@@ -1,0 +1,14 @@
+# Фрагмент виводу `./gradlew dependencies` (compileClasspath) — зібрано як evidence, лише для читання
+
+compileClasspath - Compile classpath for source set 'main'.
++--- org.springframework.boot:spring-boot-starter-web -> 2.7.18
++--- org.springframework.boot:spring-boot-starter-data-jpa -> 2.7.18
++--- org.springframework.boot:spring-boot-starter-security -> 2.7.18
++--- org.hibernate:hibernate-core:5.+ -> 5.6.15.Final
+|    \--- org.hibernate.common:hibernate-commons-annotations:5.1.2.Final
++--- org.postgresql:postgresql:42.5.4
+\--- (testImplementation) org.springframework.boot:spring-boot-starter-test -> 2.7.18
+
+# Примітка: динамічна маска `5.+` у build.gradle резолвиться в конкретну
+# версію `5.6.15.Final` на момент збирання цього виводу. Саме це число —
+# фактичний current state, який потрапляє в рядок матриці.
