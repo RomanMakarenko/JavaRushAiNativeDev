@@ -12,12 +12,16 @@ repositories {
     mavenCentral()
 }
 
+dependencyLocking {
+    lockAllConfigurations()
+}
+
 dependencies {
     // framework layer: міграція Spring Boot 2.7 -> 3.x ще не виконана
     implementation("org.springframework.boot:spring-boot-starter-web:2.7.18")
 
-    // dependency layer: проблемна транзитивна залежність, версія не зафіксована
-    implementation("com.fasterxml.jackson.core:jackson-databind")
+    // dependency layer: проблемна транзитивна залежність, версія зафіксована явно
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.4")
 
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
 }
