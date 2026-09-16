@@ -1,0 +1,23 @@
+STAGE EVIDENCE — Order Support Tool
+Дата перевірки: 2026-09-16
+
+Файли, на які спираються докази:
+- `README.md` — опис призначення та команди запуску demo.
+- `docs/limitations.md` — перелік обмежень і застереження «demo, не production».
+- `data/sample-tickets.json` — локальні sample data для перевірки.
+- `scripts/run-demo.sh` — демонстраційний скрипт.
+
+$ python3 -c 'import json; from pathlib import Path; p=Path("data/sample-tickets.json"); tickets=json.loads(p.read_text()); assert isinstance(tickets, list) and tickets; assert all(t.get("id") and t.get("subject") and t.get("body") and t.get("channel") for t in tickets); print("OK: valid JSON, sample tickets=%d, ids=%s" % (len(tickets), ",".join(t["id"] for t in tickets)))'
+OK: valid JSON, sample tickets=5, ids=T-1001,T-1002,T-1003,T-1004,T-1005
+
+$ bash -n scripts/run-demo.sh && bash scripts/run-demo.sh
+== Order Support Tool (demo) ==
+Джерело даних: data/sample-tickets.json
+Завантажено sample tickets: 5
+Прогін одного core flow: ticket -> draft -> review
+Готово. Це demo-збірка на sample data, не production.
+
+Висновок щодо статусу:
+- Працює на локальному sample data: перевірено валідність JSON і 5 записів.
+- Demo-скрипт запускається успішно та проходить flow ticket -> draft -> review.
+- Production не заявляється: запуск прямо повідомляє "не production"; інтеграції з реальною БД, авторизації та retry відсутні (див. docs/limitations.md).
