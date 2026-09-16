@@ -1,0 +1,5 @@
+$ curl -s http://localhost:8080/api/reports/monthly?period=2026-04 -o /tmp/pilot-monthly.json -w "%{http_code}\n"
+200
+$ diff -u evidence/baseline-monthly.json /tmp/pilot-monthly.json
+# (немає відмінностей — empty diff)
+smoke OK: endpoint відповідає 200, response збігається з baseline

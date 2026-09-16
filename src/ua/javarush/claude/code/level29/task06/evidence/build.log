@@ -1,0 +1,16 @@
+$ ./gradlew clean build
+> Task :clean
+> Task :compileJava
+> Task :processResources
+> Task :classes
+> Task :bootJar
+> Task :jar
+> Task :compileTestJava
+> Task :processTestResources
+> Task :testClasses
+> Task :test
+> Task :check
+> Task :build
+
+BUILD SUCCESSFUL in 12s
+8 actionable tasks: 8 executed

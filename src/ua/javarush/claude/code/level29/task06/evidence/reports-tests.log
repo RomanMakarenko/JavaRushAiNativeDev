@@ -1,0 +1,8 @@
+$ ./gradlew test --tests '*reports*'
+> Task :test
+
+com.cashflow.reports.api.MonthlyReportJsonShapeTest > notesPresentEvenWhenNull() PASSED
+com.cashflow.reports.api.MonthlyReportContractTest > monthlyReportMatchesBaseline() PASSED
+
+BUILD SUCCESSFUL in 5s
+2 tests completed, 0 failed
