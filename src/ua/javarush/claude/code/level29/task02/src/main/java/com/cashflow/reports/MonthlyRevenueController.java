@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.math.BigDecimal;
 
 /**
- * Контролер місячної виручки. Read-only поверхня: лише читання агрегатів,
- * без запису в БД і без грошових операцій. Гарний кандидат для першого
- * migration pilot на Spring Boot 3.x.
+ * Контролер місячної виручки. Поверхня лише для читання: тільки читання агрегатів,
+ * без запису до БД і без грошових операцій.
  */
 @RestController
 public class MonthlyRevenueController {

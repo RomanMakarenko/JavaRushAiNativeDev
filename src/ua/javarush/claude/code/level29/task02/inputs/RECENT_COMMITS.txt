@@ -1,0 +1,9 @@
+a1b2c3d 2026-05-28 [reports] add monthly revenue read-only endpoint
+9f8e7d6 2026-05-27 [reports] extract MonthlyRevenueService from controller
+7a6b5c4 2026-05-26 [billing] WIP: rework invoice tax calculation (active branch feature/tax-2026)
+6d5e4f3 2026-05-26 [billing] hotfix invoice rounding for EUR
+5c4d3e2 2026-05-25 [security] rotate JWT signing keys (active branch feature/auth-hardening)
+4c3b2a1 2026-05-20 [reports] initial reports module skeleton
+
+Примітка: на billing/* і security/* просто зараз тривають активні паралельні роботи
+(feature/tax-2026, feature/auth-hardening). reports/* стабільний і не має відкритих гілок.
