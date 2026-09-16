@@ -1,0 +1,15 @@
+{
+  "period": "2026-04",
+  "currency": "EUR",
+  "totalIncome": 18450.00,
+  "totalExpense": 12730.55,
+  "net": 5719.45,
+  "categories": [
+    { "name": "Salary", "amount": 18000.00 },
+    { "name": "Interest", "amount": 450.00 },
+    { "name": "Rent", "amount": -9000.00 },
+    { "name": "Groceries", "amount": -2230.55 },
+    { "name": "Utilities", "amount": -1500.00 }
+  ],
+  "notes": null
+}
