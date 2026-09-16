@@ -1,0 +1,22 @@
+name: ci
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # шар виконання: поки запускаємо лише на одній версії Java
+      - name: Налаштувати JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '8'
+
+      - name: Запустити тести
+        run: ./gradlew test
