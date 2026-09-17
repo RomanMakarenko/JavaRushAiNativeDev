@@ -1,0 +1,11 @@
+ticket_id,type,refund_amount,reopened,handled_by
+T-1001,refund,45,no,line-1
+T-1002,status,0,no,line-1
+T-1003,refund,160,no,lead
+T-1004,refund,30,yes,line-1
+T-1005,status,0,no,line-1
+T-1006,refund,250,no,lead
+T-1007,refund,15,no,line-1
+T-1008,refund,99,no,line-1
+T-1009,refund,120,no,lead
+T-1010,status,0,yes,line-1
