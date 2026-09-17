@@ -21,8 +21,9 @@ export default function Page() {
         onChange={(e) => setUrl(e.target.value)}
         placeholder="https://example.com"
       />
-      {/* Кнопка поки що активна завжди — навіть за порожнього URL (відома проблема) */}
-      <button onClick={handleAnalyze}>Analyze</button>
+      <button disabled={!url.trim()} onClick={handleAnalyze}>
+        Analyze
+      </button>
       {report && <p role="status">{report}</p>}
     </main>
   );
