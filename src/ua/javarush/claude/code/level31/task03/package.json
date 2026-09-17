@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "test": "jest"
+    "test": "jest",
+    "core-flow-smoke": "node --experimental-strip-types scripts/core-flow-smoke.mjs"
   },
   "dependencies": {
     "next": "14.2.0",
