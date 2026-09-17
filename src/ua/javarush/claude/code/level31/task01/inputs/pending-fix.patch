@@ -1,0 +1,31 @@
+diff --git a/app/page.tsx b/app/page.tsx
+index 6c7b87a..a964f28 100644
+--- a/app/page.tsx
++++ b/app/page.tsx
+@@ -22,7 +22,7 @@ export default function Page() {
+         placeholder="https://example.com"
+       />
+       {/* Кнопка поки що завжди активна — навіть за порожнього URL (відома проблема) */}
+-      <button onClick={handleAnalyze}>Analyze</button>
++      <button onClick={handleAnalyze} disabled={!url.trim()}>Analyze</button>
+       {report && <p role="status">{report}</p>}
+     </main>
+   );
+diff --git a/tests/landing-form.test.tsx b/tests/landing-form.test.tsx
+index e650633..a9052f9 100644
+--- a/tests/landing-form.test.tsx
++++ b/tests/landing-form.test.tsx
+@@ -10,4 +10,13 @@ describe("landing form", () => {
+     fireEvent.click(screen.getByText("Analyze"));
+     expect(screen.getByRole("status")).toHaveTextContent("https://example.com");
+   });
++
++  it("утримує кнопку Analyze неактивною за порожнього URL", () => {
++    render(<Page />);
++    const button = screen.getByText("Analyze");
++    expect(button).toBeDisabled();
++    const input = screen.getByLabelText("campaign-url");
++    fireEvent.change(input, { target: { value: "   " } });
++    expect(button).toBeDisabled();
++  });
+ });

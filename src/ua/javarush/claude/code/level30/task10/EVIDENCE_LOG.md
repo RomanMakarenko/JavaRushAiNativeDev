@@ -4,12 +4,10 @@
 
 ## Розбіжність smoke-скрипта з актуальним demo-endpoint
 
-<!--
-Додайте запис-слід про знайдену розбіжність:
-- Що перевіряли: чи відповідає verification path актуальному demo.
-- Що виявили: який endpoint в app/main.py і який у scripts/smoke-demo.sh
-  та tests/test_smoke_script.py.
-- Висновок: зафіксовано як known limitation у SPEC.md.
-- Рішення щодо правки: фактичну правку скрипта/тесту відкладено в реалізацію;
-  код і тести на цьому проході не змінювалися.
--->
+**Що перевіряли:** чи відповідає verification path актуальному core flow demo.
+
+**Що виявили:** `scripts/smoke-demo.sh` звертається до `GET /api/refund/check`, а `app/main.py` реалізує актуальний `GET /api/demo/status`. `tests/test_smoke_script.py` також перевіряє застарілий шлях `/api/refund/check`.
+
+**Висновок:** розбіжність зафіксовано як known limitation у `SPEC.md`; до виправлення актуальний verification path проходить вручну через `/api/demo/status`, повз smoke-скрипт.
+
+**Рішення щодо правки:** правку `scripts/smoke-demo.sh` і `tests/test_smoke_script.py` відкладено у фазу реалізації. `scripts/smoke-demo.sh`, `tests/test_smoke_script.py` та `app/main.py` на цьому проході не змінювалися.
