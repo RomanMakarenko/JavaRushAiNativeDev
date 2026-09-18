@@ -5,11 +5,12 @@ services:
     container_name: demo-ready-api
     ports:
       - "8080:8000"
+    env_file:
+      - .env.example
     environment:
-      # Значення беруться з локального .env, якого немає в репозиторії.
-      # Без нього demo не запустити, і стороння людина не знає, що сюди підставляти.
-      APP_ENV: ${APP_ENV}
-      LOG_LEVEL: ${LOG_LEVEL}
-      DATABASE_URL: ${DATABASE_URL}
-      API_TOKEN: ${API_TOKEN}
+      # Demo mode використовує безпечні placeholder-значення з .env.example.
+      APP_ENV: ${APP_ENV:-demo}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      DATABASE_URL: ${DATABASE_URL:-sqlite:///./data/demo.db}
+      API_TOKEN: ${API_TOKEN:-demo-token-placeholder}
     restart: unless-stopped
