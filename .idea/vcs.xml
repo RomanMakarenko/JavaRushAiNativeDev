@@ -15,5 +15,6 @@
     <mapping directory="$PROJECT_DIR$/src/ua/javarush/claude/code/level29/task01" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/ua/javarush/claude/code/level29/task01/worktrees/boot3-reports-pilot" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/ua/javarush/claude/code/level31/task01" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ua/javarush/claude/code/level32/task09" vcs="Git" />
   </component>
 </project>
