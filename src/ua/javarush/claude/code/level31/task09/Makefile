@@ -1,4 +1,4 @@
-.PHONY: build test demo
+.PHONY: build test demo handoff-verify
 
 build:
 	@echo "build ok"
@@ -8,3 +8,6 @@ test:
 
 demo:
 	@bash scripts/run-demo.sh
+
+handoff-verify:
+	@bash scripts/handoff-check.sh
