@@ -4,6 +4,6 @@ import { defineConfig } from 'vitest/config';
 // тому реальні тести з tests/ у прогін не потрапляють.
 export default defineConfig({
   test: {
-    include: ['src/**/*.test.ts'],
+    include: ['tests/**/*.test.ts'],
   },
 });
