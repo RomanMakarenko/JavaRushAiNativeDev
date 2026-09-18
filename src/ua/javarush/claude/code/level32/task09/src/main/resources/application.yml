@@ -1,0 +1,4 @@
+app:
+  port: 8080
+  # хардкод секрету — не можна публікувати
+  openai-api-key: sk-live-demo-key
