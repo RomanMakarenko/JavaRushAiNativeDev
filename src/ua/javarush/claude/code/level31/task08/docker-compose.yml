@@ -1,0 +1,15 @@
+services:
+  api:
+    build: .
+    image: demo-ready-api:local
+    container_name: demo-ready-api
+    ports:
+      - "8080:8000"
+    environment:
+      # Значення беруться з локального .env, якого немає в репозиторії.
+      # Без нього demo не запустити, і стороння людина не знає, що сюди підставляти.
+      APP_ENV: ${APP_ENV}
+      LOG_LEVEL: ${LOG_LEVEL}
+      DATABASE_URL: ${DATABASE_URL}
+      API_TOKEN: ${API_TOKEN}
+    restart: unless-stopped
