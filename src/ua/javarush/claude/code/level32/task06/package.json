@@ -1,0 +1,12 @@
+{
+  "name": "checkout-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "echo \"no tests configured\" && exit 0"
+  },
+  "devDependencies": {
+    "vitest": "^2.0.0"
+  }
+}
