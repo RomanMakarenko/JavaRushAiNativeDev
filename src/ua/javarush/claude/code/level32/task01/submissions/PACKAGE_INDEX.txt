@@ -1,0 +1,6 @@
+.env.example
+EVIDENCE.md
+README.md
+SPEC.md
+docker-compose.yml
+docs/DEMO.md
