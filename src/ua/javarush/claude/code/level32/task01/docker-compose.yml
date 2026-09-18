@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    container_name: ticket-status
+    env_file:
+      - .env
+    ports:
+      - "${APP_HTTP_PORT}:8000"
+    restart: unless-stopped
