@@ -1,0 +1,10 @@
+{
+  "user_id": "demo-user-001",
+  "transactions": [
+    { "date": "2026-05-02", "category": "groceries", "amount": 54.20 },
+    { "date": "2026-05-05", "category": "transport", "amount": 18.00 },
+    { "date": "2026-05-09", "category": "groceries", "amount": 71.35 },
+    { "date": "2026-05-14", "category": "entertainment", "amount": 32.50 },
+    { "date": "2026-05-20", "category": "groceries", "amount": 40.10 }
+  ]
+}

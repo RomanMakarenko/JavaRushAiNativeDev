@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    image: demo-ready-api:local
+    container_name: demo-ready-api
+    ports:
+      - "8080:8000"
+    environment:
+      APP_ENV: local
+      LOG_LEVEL: info
+    restart: unless-stopped
