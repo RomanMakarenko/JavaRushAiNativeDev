@@ -1,0 +1,2 @@
+Middle backend developer / internal tools
+Команди середнього розміру, продуктова розробка, робота з наявним кодом.
