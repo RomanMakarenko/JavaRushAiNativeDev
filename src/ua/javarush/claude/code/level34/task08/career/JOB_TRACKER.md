@@ -4,13 +4,13 @@
 
 | Company | Role | Status | Next action |
 | --- | --- | --- | --- |
-| Solis | Backend Engineer | screening invited | Запропонувати рекрутерці 2–3 зручні слоти для screening-дзвінка наступного тижня |
+| Solis | Backend Engineer | screening | Запропонувати рекрутеру слоти для дзвінка |
 
 ## Pipeline
 
 | Company | Role | Status | Next action |
 | --- | --- | --- | --- |
-| Helix | Platform Engineer | identified | Прочитати опис вакансії |
+| Orbit | QA Automation | identified | Розібрати опис вакансії |
 
 ## Rejected / withdrawn
 
