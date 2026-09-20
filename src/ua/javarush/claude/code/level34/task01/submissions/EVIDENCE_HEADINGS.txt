@@ -1,0 +1,4 @@
+## Capstone: refund-сервіс
+## Backend і тестування
+## AI-native робочий процес
+## Документація і handoff
