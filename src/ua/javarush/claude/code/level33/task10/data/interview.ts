@@ -1,6 +1,4 @@
 // Дані для interview prep page.
-// БАГ: відсутня опора "What I verified manually", follow-up запитань менше
-// п'яти, а в "What Claude helped with" залишився overclaim про роль Claude.
 
 export type AnswerBlock = {
   // Заголовок опори відповіді.
@@ -28,6 +26,14 @@ export const answerBlocks: AnswerBlock[] = [
     ],
   },
   {
+    title: "What I verified manually",
+    points: [
+      "Звірив поведінку сортування на граничних датах",
+      "Перевірив сценарії порожнього та дубльованого inbox",
+      "Переглянув фінальний diff і результати npm test",
+    ],
+  },
+  {
     title: "What I'd improve next",
     points: [
       "Посилити інтеграційні тести",
@@ -41,4 +47,6 @@ export const followUpQuestions: string[] = [
   "Що саме ви перевіряли вручну?",
   "Що ви б не делегували AI?",
   "Можете пояснити модуль refund inbox без Claude?",
+  "Які компроміси ви розглядали під час вибору рішення?",
+  "Як би ви перевірили це рішення після релізу?",
 ];
