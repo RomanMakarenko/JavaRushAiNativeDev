@@ -1,0 +1,16 @@
+drafts/RESUME.md:1:# Резюме — [ІМ'Я ПРІЗВИЩЕ]
+drafts/RESUME.md:4:AI architect і 10x engineer з досвідом backend-розробки.
+drafts/RESUME.md:7:- Led a team of 6 інженерів у рамках enterprise rollout платіжної платформи.
+drafts/RESUME.md:8:- Production ownership критичного billing-сервісу.
+drafts/RESUME.md:9:- TODO: додати метрики з надійності.
+drafts/RESUME.md:13:Посилання: https://example.com/capstone
+drafts/RESUME.md:16:Email: TBD
+drafts/LINKEDIN_PROFILE.md:3:AI architect, відповідальний за enterprise rollout і production ownership
+drafts/LINKEDIN_PROFILE.md:11:Контакт: [LinkedIn URL]
+drafts/LINKEDIN_PROFILE.md:12:Демо: https://example.com/demo
+drafts/GITHUB_PROFILE.md:1:# [username]
+drafts/GITHUB_PROFILE.md:3:10x engineer. Роблю backend, який не падає.
+drafts/GITHUB_PROFILE.md:7:- Демонстрував team leadership на кількох проектах.
+drafts/GITHUB_PROFILE.md:11:- Lorem ipsum dolor sit amet (чернетка опису).
+drafts/GITHUB_PROFILE.md:14:- Портфоліо: [](https://example.com)
+drafts/GITHUB_PROFILE.md:15:- PR walkthrough: TODO
