@@ -1,1 +1,1 @@
-```
+Middle backend developer демонструє впевнене ведення issue-to-PR циклу через evidence anchor `PR-walkthrough.md` (RF-217), де сплановано small diff, додано reproducible regression tests і пройдено review для безпечної зміни наявного коду.
