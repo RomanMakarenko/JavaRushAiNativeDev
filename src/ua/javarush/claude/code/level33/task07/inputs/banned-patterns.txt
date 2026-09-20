@@ -1,0 +1,17 @@
+# Патерни для аудиту кар'єрних драфтів (по одному на рядок, regex-сумісні).
+# Категорія 1: placeholders — незаповнені заглушки.
+TODO
+TBD
+\[.*\]
+XXXXX
+lorem ipsum
+# Категорія 2: порожні посилання.
+https?://example\.com
+\]\(\)
+# Категорія 3: unsafe claims / overclaims без evidence.
+AI architect
+team leadership
+led a team of
+enterprise rollout
+production ownership
+10x engineer
